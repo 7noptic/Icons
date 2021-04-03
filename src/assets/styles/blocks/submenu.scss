@@ -1,0 +1,43 @@
+.submenu {
+  &__tab {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+    width: 100%;
+    flex-wrap: nowrap!important;
+  }
+  &__nav{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 10px 30px;
+    padding-right: 30px;
+    border-right: 1px solid rgba(#000,.1);
+  }
+  &__link{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    display: inline-flex;
+    width: fit-content;
+    width: max-content;
+
+    &.active{
+      background-color: $blue;
+      color: #fff;
+      border-radius: $radiusBtn;
+    }
+  }
+  &__list{
+    columns: 125px 2;
+    padding: 30px !important;
+  }
+  &__img{
+    height: 100%;
+    img{
+      object-fit: cover;
+
+    }
+  }
+}

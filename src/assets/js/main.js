@@ -6,19 +6,18 @@ import GLightbox from 'glightbox';
 Swiper.use([Navigation, Pagination]);
 
 
-window.addEventListener('DOMContentLoaded', () =>{
+window.addEventListener('DOMContentLoaded', () => {
     /* HAMBURGER MENU IN HEADER*/
     let header = document.querySelector('.header'),
         hamburgerBtn = header.querySelector('.js-burger'),
         hamburgerMenu = header.querySelector('.hamburger-menu');
 
 
-
     header.addEventListener('click', (e) => {
-    if (e.target && e.target.classList.contains('js-burger')) {
-        hamburgerMenu.classList.toggle('active');
-        hamburgerBtn.classList.toggle('active');
-    }
+        if (e.target && e.target.classList.contains('js-burger')) {
+            hamburgerMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
+        }
     });
     /* ЗАГРУЗКА ДАННЫХ ИЗ LocalStorage */
     /* пример
@@ -29,32 +28,47 @@ window.addEventListener('DOMContentLoaded', () =>{
     }
     */
 
-   /* MODAL */
-   let modalBlock = document.querySelector('.js-sidebars'),
-   allModal = document.querySelectorAll('.js-sidebars > section');
+    /* MODAL */
+    let modalBlock = document.querySelector('.js-sidebars'),
+        allModal = document.querySelectorAll('.js-sidebars > section');
 
 
-   document.addEventListener('click', e =>{
-    let target = e.target;
-    /* ЗАКРЫТИЕ ПО КЛИКУ НА САЙДБАР */
+    document.addEventListener('click', e => {
+        let target = e.target;
+        /* ЗАКРЫТИЕ ПО КЛИКУ НА САЙДБАР */
         if (target && target.classList.contains('sidebar-bg')) {
             e.preventDefault();
             modalBlock.classList.toggle('sidebar-bg');
-            for(let i =0; i < allModal.length; i++){
+            for (let i = 0; i < allModal.length; i++) {
                 if (allModal[i].classList.toggle('active')) {
                     allModal[i].classList.remove('active');
                 }
             }
         }
-   });
-   
-   function toggleModal(e, modal) {
-    e.preventDefault();
-    modalBlock.classList.toggle('sidebar-bg');
-    modal.classList.toggle('active');
+    });
+
+    function toggleModal(e, modal) {
+        e.preventDefault();
+        modalBlock.classList.toggle('sidebar-bg');
+        modal.classList.toggle('active');
     }
 
+    let headerIconsParent = document.querySelector('.header-category'),
+        headerIconsLink = document.querySelectorAll('.js-header-icon-link'),
+        headerIconsTab = document.querySelectorAll('.js-header-icon-tabs'),
+        headerShelfLink = document.querySelectorAll('.js-header-shelf-link'),
+        headerShelfTab = document.querySelectorAll('.js-header-shelf-tabs'),
+        headerIconStasLink = document.querySelectorAll('.js-header-iconstas-link'),
+        headerIconStasTab = document.querySelectorAll('.js-header-iconstas-tabs'),
+        headerKiotLink = document.querySelectorAll('.js-header-kiot-link'),
+        headerKiotTab = document.querySelectorAll('.js-header-kiot-tabs');
 
+    if (headerIconsParent && headerShelfLink.length > 0) {
+        toggleTabs(headerIconsLink, headerIconsTab, headerIconsParent, 'js-header-icon-link');
+        toggleTabs(headerShelfLink, headerShelfTab, headerIconsParent, 'js-header-shelf-link');
+        toggleTabs(headerIconStasLink, headerIconStasTab, headerIconsParent, 'js-header-iconstas-link');
+        toggleTabs(headerKiotLink, headerKiotTab, headerIconsParent, 'js-header-kiot-link');
+    }
 
     /* TABS */
     function toggleTabs(link, tabs, parent, classContains, subTabs, subLink, subContent) {
@@ -117,21 +131,21 @@ window.addEventListener('DOMContentLoaded', () =>{
     }
 
     function hideTabs(link, content) {
-        for(let i = 0; i < link.length; i++){
+        for (let i = 0; i < link.length; i++) {
             link[i].classList.remove('active');
         }
-        for(let i = 0; i < content.length; i++){
+        for (let i = 0; i < content.length; i++) {
             content[i].classList.remove('active');
         }
     }
 
     /* SHOW HIDE CONTENT */
-    
-    function toggleContent(link, content, linkClass){
+
+    function toggleContent(link, content, linkClass) {
         document.addEventListener('click', (e) => {
-            if(e.target && e.target.classList.contains(linkClass)){
+            if (e.target && e.target.classList.contains(linkClass)) {
                 e.preventDefault();
-                for(let i = 0; i < link.length; i++){
+                for (let i = 0; i < link.length; i++) {
                     if (e.target == link[i]) {
                         link[i].classList.toggle('active');
                         content[i].classList.toggle('active');
@@ -142,38 +156,32 @@ window.addEventListener('DOMContentLoaded', () =>{
     }
 
 
-
-
-
     /* RATING */
     let ratingParent = document.querySelector('.js-rating'),
-    ratingInput = document.querySelector('#js-rating'),
-    ratingStar = document.querySelectorAll('.js-rating > li');
+        ratingInput = document.querySelector('#js-rating'),
+        ratingStar = document.querySelectorAll('.js-rating > li');
 
     if (ratingParent) {
-    ratingParent.addEventListener('click', (event) => {
-        event.preventDefault();
-        const target = event.target;
-        if (target && target.tagName == 'LI') {
-            for(let i = 0; i < ratingStar.length; i++){
-                ratingStar[i].classList.remove('active')
-            }
-            for (let i = 0; i => ratingStar.length; i++) {
-                if (ratingStar[i] == target) {
-                    ratingStar[i].classList.add('active');
-                    ratingInput.value = ++i;
-                    return
-                } else {
-                    ratingStar[i].classList.add('active');
+        ratingParent.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = event.target;
+            if (target && target.tagName == 'LI') {
+                for (let i = 0; i < ratingStar.length; i++) {
+                    ratingStar[i].classList.remove('active')
+                }
+                for (let i = 0; i => ratingStar.length; i++) {
+                    if (ratingStar[i] == target) {
+                        ratingStar[i].classList.add('active');
+                        ratingInput.value = ++i;
+                        return
+                    } else {
+                        ratingStar[i].classList.add('active');
+                    }
                 }
             }
-        }
 
-    });
+        });
     }
-
-
-
 
 
     /* VIDEO */
@@ -230,14 +238,6 @@ window.addEventListener('DOMContentLoaded', () =>{
 
     findVideos();
 });
-
-
-
-
-
-
-
-
 
 
 /* АДАПТИВНОЕ ПЕРЕМЕЩЕНИЕ БЛОКОВ */
