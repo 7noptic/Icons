@@ -1,0 +1,69 @@
+.card {
+  &__img{
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  &__feedback{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+  &__info{
+    padding: 15px;
+  }
+  &__reviews{
+    font-size: 12px;
+    line-height: 15px;
+  }
+  &__availability{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: $blue;
+  }
+  &__name{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    display: block;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+    height: 50px;
+  }
+  &-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__new{
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 20px;
+    }
+    &-old{
+      font-family: Geometria;
+      font-size: 18px;
+      line-height: 24px;
+      text-decoration: line-through;
+    }
+    &__discount{
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 20px;
+      color: $blue;
+    }
+  }
+  &-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

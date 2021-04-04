@@ -35,9 +35,12 @@
   }
   &__img{
     height: 100%;
+    overflow: hidden;
     img{
       object-fit: cover;
-
+      height: 100%;
+      border-bottom-right-radius: 6px ;
+      border-top-right-radius: 6px ;
     }
   }
 }

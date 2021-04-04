@@ -7,12 +7,11 @@
   border-radius: $radiusBtn;
   font-size: 16px;
   line-height: 24px;
-  transition: $transition2;
+  transition: none;
   cursor: pointer;
   &:hover,&.active{
     background: #001F8B;
-    background: $blueGr;
-    color: #000;
+    color: #fff;
   }
 
   &-brown{

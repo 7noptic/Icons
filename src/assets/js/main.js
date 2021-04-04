@@ -1,9 +1,9 @@
 'use script';
-import Swiper, {Navigation, Pagination,} from 'swiper';
+import Swiper, {Autoplay, Navigation, Pagination,} from 'swiper';
 import Readmore from "readmore-js";
 import GLightbox from 'glightbox';
 
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation, Pagination, Autoplay]);
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -154,6 +154,23 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* SWIPER */
+    let SwiperBanner = new Swiper('.swiper-banner', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        observeParents: true,
+        observer: true,
+        allowSlidePrev: true,
+        allowSlideNext: true,
+        autoplay: {
+            delay: 4000,
+        },
+        pagination: {
+            el: '.swiper-pagination-banner',
+            clickable: true,
+        },
+    });
 
 
     /* RATING */

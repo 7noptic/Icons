@@ -3,13 +3,15 @@
 @import "default";
 @import "animation";
 @import "mixin";
-
+@import "blocks/title";
 /* А */
 
 /* В */
 @import "blocks/btn";
+@import "blocks/banner";
 /* C */
 @import "blocks/container";
+@import "blocks/card";
 /* D */
 
 /* E */
@@ -21,7 +23,7 @@
 /* H */
 @import "blocks/header";
 /* I */
-
+@import "blocks/info";
 /* J */
 
 /* K */
@@ -39,9 +41,10 @@
 /* Q */
 
 /* R */
-
+@import "blocks/rating-star";
 /* S */
 @import "blocks/submenu";
+@import "blocks/swiper";
 /* T */
 @import "blocks/tab";
 
