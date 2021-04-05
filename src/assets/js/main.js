@@ -61,7 +61,11 @@ window.addEventListener('DOMContentLoaded', () => {
         headerIconStasLink = document.querySelectorAll('.js-header-iconstas-link'),
         headerIconStasTab = document.querySelectorAll('.js-header-iconstas-tabs'),
         headerKiotLink = document.querySelectorAll('.js-header-kiot-link'),
-        headerKiotTab = document.querySelectorAll('.js-header-kiot-tabs');
+        headerKiotTab = document.querySelectorAll('.js-header-kiot-tabs'),
+        storeParent = document.querySelector('.store'),
+        storeLink = document.querySelectorAll('.js-store-link'),
+        storeTab = document.querySelectorAll('.js-store-tab');
+
 
     if (headerIconsParent && headerShelfLink.length > 0) {
         toggleTabs(headerIconsLink, headerIconsTab, headerIconsParent, 'js-header-icon-link');
@@ -69,27 +73,30 @@ window.addEventListener('DOMContentLoaded', () => {
         toggleTabs(headerIconStasLink, headerIconStasTab, headerIconsParent, 'js-header-iconstas-link');
         toggleTabs(headerKiotLink, headerKiotTab, headerIconsParent, 'js-header-kiot-link');
     }
+    if (storeParent && storeLink.length > 0) {
+        toggleTabs(storeLink, storeTab, storeParent, 'js-store-link', true, '.js-store-sublink', '.js-store-subtab');
+    }
 
     /* TABS */
     function toggleTabs(link, tabs, parent, classContains, subTabs, subLink, subContent) {
         hideTabs(link, tabs);
         showTabs(0, link, tabs);
-        /*
-        let indexPrevTabs = 0,
-            TabsPrevHeight = tabs[indexPrevTabs].clientHeight;
-        console.log(tabs[0].clientHeight);
-        */
-        let subIndex = 0;
 
+        let subIndex = 0;
+        let trigger = false;
         if (subTabs) {
-            let subLinks = tabs[0].querySelectorAll(subLink),
-                subTabs = tabs[0].querySelectorAll(subContent);
+            let subLinks = tabs[subIndex].querySelectorAll(subLink),
+                subTabs = tabs[subIndex].querySelectorAll(subContent);
             hideTabs(subLinks, subTabs);
             showTabs(0, subLinks, subTabs);
+            trigger = true;
         }
         parent.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains(classContains)) {
                 e.preventDefault();
+                if(trigger){
+                    subTabs = true;
+                }
 
                 for (let i = 0; i < link.length; i++) {
                     if (link[i] === e.target) {
@@ -102,18 +109,12 @@ window.addEventListener('DOMContentLoaded', () => {
                             showTabs(0, subLinks, subTabs);
                             subIndex = i;
                         }
-                        /*
-                        if(tabs[i].clientHeight > TabsPrevHeight){
-                            console.log(tabs[i].clientHeight);
-                            console.log(TabsPrevHeight);
-                        }
-                        */
                     }
                 }
             }
             let subLinks = tabs[subIndex].querySelectorAll(subLink),
                 subTabs = tabs[subIndex].querySelectorAll(subContent);
-            if (e.target && e.target.classList.contains(subLink)) {
+            if (e.target && e.target.classList.contains('js-store-sublink')) {
                 e.preventDefault();
                 for (let i = 0; i < subLinks.length; i++) {
                     if (subLinks[i] === e.target) {

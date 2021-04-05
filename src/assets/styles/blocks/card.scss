@@ -1,7 +1,11 @@
 .card {
+  padding-bottom: 50px;
   &__img{
     border-radius: 6px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__feedback{
     display: flex;
@@ -42,17 +46,19 @@
   &-price{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     &__new{
       font-weight: 500;
       font-size: 24px;
       line-height: 20px;
     }
-    &-old{
+    &__old{
       font-family: Geometria;
       font-size: 18px;
       line-height: 24px;
       text-decoration: line-through;
+      margin-bottom: -2px;
+      opacity: .8;
     }
     &__discount{
       font-weight: 600;
@@ -65,5 +71,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 20px;
+  }
+  &__btn{
+    width: 48%;
+    padding: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &-border{
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 }

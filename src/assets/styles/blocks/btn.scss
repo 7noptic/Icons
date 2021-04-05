@@ -7,8 +7,9 @@
   border-radius: $radiusBtn;
   font-size: 16px;
   line-height: 24px;
-  transition: none;
+  //transition: none;
   cursor: pointer;
+  transition: $transition3;
   &:hover,&.active{
     background: #001F8B;
     color: #fff;
@@ -17,6 +18,15 @@
   &-brown{
     background: #9A7F5F;
     background: $brownGr;
+  }
+  &-brownborder{
+    background: transparent;
+    border: 2px solid #C9BBAE;
+    color: $brown;
+    &:hover,&.active{
+      background: #C9BBAE;
+      color: #fff;
+    }
   }
 }
 @media screen and (max-width:991px){

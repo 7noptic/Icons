@@ -12,4 +12,39 @@
     opacity: 1;
     transform: scale(1);
   }
+  &-nav{
+    display: flex;
+    padding-bottom: 30px;
+    &__link{
+      font-size: 32px;
+      line-height: 39px;
+      padding-right: 100px;
+      display: block;
+      &.active{
+        font-weight: 600;
+      }
+    }
+
+    }
+    &-subnav{
+      display: flex;
+      padding-bottom: 30px;
+      &__link{
+        font-size: 14px;
+        line-height: 24px;
+        border-radius: $radiusBtn;
+        padding: 6px 17px;
+        background: #FBFBFB;
+        text-transform: uppercase;
+        margin-right: 20px;
+        &:hover{
+          background: rgba($blue, .7);
+          color: #FFFFFF;
+        }
+        &.active{
+          background: $blue;
+          color: #FFFFFF;
+        }
+    }
+  }
 }

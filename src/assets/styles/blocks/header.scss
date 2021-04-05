@@ -292,7 +292,7 @@
     & > button {
       width: 100%;
       border-radius: 50%;
-      background: $blue;
+      background: $brownGr;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -302,7 +302,6 @@
       transition: $transition3;
 
       &:hover, &.active {
-        background: #001F8B;
         background: $blueGr;
         color: #000;
       }
