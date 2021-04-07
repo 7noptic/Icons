@@ -1,5 +1,6 @@
 .rating-star{
   display: inline-block;
+  margin-bottom: -3px!important;
   & li{
     display: inline-block;
     width: 16px;
@@ -17,5 +18,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+}
+@media screen and(max-width:1199px){
+  .rating-star{
+    margin-bottom: -4px!important;
+    
   }
 }

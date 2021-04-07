@@ -1,0 +1,31 @@
+.form{
+    &__input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 13px;
+        border: 1px solid #C9BBAE;
+        border-radius: 8px;
+        text-align: center;
+        transition: $transition3;
+        width: 100%;
+        &::placeholder{
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+        }
+        &:hover{
+            border: 1px solid darken(#C9BBAE, 25%);  
+        }
+        &:active,&:focus{
+            border: 1px solid $brown;
+        }
+    }
+}
+@media screen and (max-width: 1199px){
+    .form{
+        &__input{
+            padding: 8px;
+        }
+    }
+}

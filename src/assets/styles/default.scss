@@ -91,6 +91,11 @@ z-index: 999;
   }
 }
 
+header,footer,main{
+  &.blur{
+    filter: blur(15px);
+  }
+}
 input,
 button,
 textarea,

@@ -14,6 +14,9 @@
     background: #001F8B;
     color: #fff;
   }
+  &:active{
+    transform: translateY(5px);
+  }
 
   &-brown{
     background: #9A7F5F;
@@ -25,6 +28,28 @@
     color: $brown;
     &:hover,&.active{
       background: #C9BBAE;
+      color: #fff;
+    }
+  }
+  &-blueborder{
+    background: transparent;
+    border: 2px solid $blue;
+    color: $blue;
+    font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+    &:hover,&.active{
+      background: $blue;
+      border: 2px solid $blue;
+      color: #fff;
+    }
+  }
+  &-transparent{
+    background: #FBFBFB;
+    color: $brown;
+    
+    &:hover,&.active{
+      background: $blue;
       color: #fff;
     }
   }

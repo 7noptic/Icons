@@ -87,3 +87,70 @@
     }
   }
 }
+@media screen and(max-width:1439px){
+  .card{
+    padding-bottom: 40px;
+    &__info{
+      padding: 15px 0;
+    }
+    &__availability,&__reviews{
+      font-size: 11px;
+    }
+    &-price{
+     &__new{
+       font-size: 20px;
+ 
+     }
+     &__old{
+       font-size: 16px;
+     }
+     &__discount{
+       font-size: 22px;
+     }
+    }
+    &__btn{
+      &-border{
+        font-size: 12px;
+      }
+    }
+ 
+  } 
+ }
+ @media screen and(max-width:1199px){
+  .card{
+    padding-bottom: 30px;
+   
+ 
+  } 
+ }
+ @media screen and(max-width:767px){
+  .card{
+    padding-bottom: 25px;
+   &__name{
+     font-size: 11px;
+     line-height: 15px;
+     height: 44px;
+   }
+   &__feedback{
+     flex-wrap: wrap;
+ul{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px!important;
+}
+   }
+   &-btn{
+     flex-wrap: wrap;
+   }
+   &__btn{
+     width: 100%;
+     padding: 5px;
+     &-border{
+       margin-top: 15px;
+     }
+   }
+
+ 
+  } 
+ }

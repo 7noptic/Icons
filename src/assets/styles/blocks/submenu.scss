@@ -44,3 +44,13 @@
     }
   }
 }
+@media screen and (max-width:1439px){
+  .submenu{
+    &__nav{
+      margin: 30px 0 10px 20px;
+    }
+    &__img{
+      display: none;
+    }
+  }
+}
