@@ -29,3 +29,23 @@
     }
   }
 }
+@media screen and (max-width:767px){
+  .title{
+    font-size: 20px;
+    line-height: 28px;
+    min-width: 200px;
+    padding-bottom: 25px;
+    &-center{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+@media screen and (max-width: 575px){
+  .title{
+    text-align: center;
+  }
+}

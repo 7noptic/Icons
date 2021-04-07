@@ -108,3 +108,18 @@
 
     }
 }
+@media screen and(max-width:767px){
+    .popular{
+        padding: 30px 0;
+        &__item{
+            margin-bottom: 10px;
+        }
+        &__head{
+            padding-bottom: 10px;
+
+        }
+        &__date{
+            padding-bottom: 0;
+        }
+    }
+}

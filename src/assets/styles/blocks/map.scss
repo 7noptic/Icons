@@ -14,3 +14,19 @@
         }
     }
 }
+@media screen and (max-width:767px){
+    .map{
+        margin: 30px 0;
+        iframe{
+            height: 400px;
+        }
+    }
+}
+@media screen and (max-width:575px){
+    .map{
+        margin: 25px 0;
+        iframe{
+            height: 350px;
+        }
+    }
+}

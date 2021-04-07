@@ -537,6 +537,9 @@ flex-wrap: wrap;
 }
 @media screen and (max-width:767px){
   .header{
+    &__row{
+      padding-bottom: 0;
+    }
     &-menu{
       display: none;
     }
@@ -552,7 +555,7 @@ flex-wrap: wrap;
       align-items: center;
       li{
         a{
-          font-size: 12px;
+          font-size: 14px;
           padding-bottom: 10px;
         }
         }
@@ -563,8 +566,14 @@ flex-wrap: wrap;
   }
   &-info,&-tel{
     padding-bottom: 20px;
+    text-align: center;
     img,svg{
       display: none;
+    }
+
+    font-size: 14px;
+    span{
+      font-size: 10px;
     }
   }
   }

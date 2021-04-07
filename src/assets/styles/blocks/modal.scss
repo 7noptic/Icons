@@ -34,9 +34,9 @@
       height: 100%;
     }
     &__exit{
-      position: absolute;
-      top: 0px;
-      right: 10px;
+      position: fixed;
+      top: 50px;
+      right: 5px;
       transition: $transition3;
       display: flex;
       justify-content: center;
