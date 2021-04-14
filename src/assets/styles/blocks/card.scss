@@ -6,6 +6,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    
+  }
+  &__tag{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 9px;
+    font-weight: bold;
+font-size: 10px;
+line-height: 13px;
+border-radius: $radiusBtn;
+background-color: #fff;
+  }
+  &__heart{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: block;
+    transition: $transition3;
+    &:hover{
+      transform: scale(1.2);
+    }
+    &::before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
   &__feedback{
     display: flex;
@@ -86,6 +118,7 @@
       line-height: 20px;
     }
   }
+  
 }
 @media screen and(max-width:1439px){
   .card{

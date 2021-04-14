@@ -1,0 +1,18 @@
+.catalog{
+    padding-bottom: 60px;
+}
+@media screen and (max-width:991px){
+    .catalog{
+        padding-bottom: 50px;
+    }
+}
+@media screen and (max-width:767px){
+    .catalog{
+        padding-bottom: 40px;
+    }
+}
+@media screen and (max-width:575px){
+    .catalog{
+        padding-bottom: 30px;
+    }
+}

@@ -1,4 +1,4 @@
-.swiper-container, .swiper-banner, .swiper-container-tags, .swiper-news{
+.swiper-container, .swiper-banner, .swiper-container-tags, .swiper-news,.selection-help-swiper{
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -8,6 +8,9 @@
   z-index: 1;
   width: 100%;
   height: 100%;
+}
+.selection-help-swiper{
+  width: 90%;
 }
 .swiper-banner{
   margin: 18px auto;
@@ -29,6 +32,75 @@
     height: 500px;
   }
 }
+@media screen and (max-width:575px) {
+  .swiper-banner{
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+.gallery-top {
+  height: 520px;
+  width: 100%;
+  padding: 0;
+  .swiper-slide{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 18px;
+  }
+}
+@media screen and (max-width:575px){
+  .gallery-top{
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+.gallery-thumbs .swiper-slide {
+margin-top: 15px;
+  width: 100%;
+  height: 100px;
+  opacity: 0.4;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.gallery-thumbs {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+
+.gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+  .swiper-tags{
+    padding: 25px 15px 40px;
+    &::after {
+      content: "";
+      display: block;
+      width: 45px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgb(255,255,255);
+      background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(247,247,247,1) 64%);
+      background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(247,247,247,1) 64%);
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(247,247,247,1) 64%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#f7f7f7",GradientType=1); 
+    }
+  
+    
+  }
 .swiper-container-tags{
   padding: 0 15px;
   width: 95%;

@@ -1,9 +1,9 @@
 'use script';
-import Swiper, {Autoplay, Navigation, Pagination,} from 'swiper';
+import Swiper, {Autoplay, Navigation, Pagination,Thumbs} from 'swiper';
 import Readmore from "readmore-js";
 import GLightbox from 'glightbox';
 
-Swiper.use([Navigation, Pagination, Autoplay]);
+Swiper.use([Navigation, Pagination, Autoplay,Thumbs]);
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -170,7 +170,10 @@ header.addEventListener('click', (e) => {
         storeTab = document.querySelectorAll('.js-store-tab'),
         newsParent = document.querySelector('.news-block'),
         newsLink = document.querySelectorAll('.js-news-link'),
-        newsTab = document.querySelectorAll('.js-news-tab');
+        newsTab = document.querySelectorAll('.js-news-tab'),
+        helpParent = document.querySelector('.selection-help'),
+        helpLink = document.querySelectorAll('.js-help-link'),
+        helpTab = document.querySelectorAll('.js-help-tab');
 
 
     if (headerIconsParent && headerShelfLink.length > 0) {
@@ -184,6 +187,9 @@ header.addEventListener('click', (e) => {
     }
     if (newsParent && newsLink.length > 0) {
         toggleTabs(newsLink, newsTab, newsParent, 'js-news-link');
+    }
+    if (helpParent && helpLink.length > 0) {
+        toggleTabs(helpLink, helpTab, helpParent, 'js-help-link');
     }
 
     /* TABS */
@@ -305,6 +311,27 @@ header.addEventListener('click', (e) => {
             clickable: true,
         },
     });
+    let SwiperSelectionHelp = new Swiper('.selection-help-swiper', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        observeParents: true,
+        observer: true,
+        allowSlidePrev: true,
+        allowSlideNext: true,
+        
+        navigation:{
+            prevEl: '.selection-help__prev',
+            nextEl: '.selection-help__next'
+        },
+        breakpoints:{
+            0:{
+                slidesPerView: 1,
+            },
+            575:{
+                slidesPerView: 2,
+            }
+        }
+    });
     let sliderTags = new Swiper('.swiper-container-tags', {
         slidesPerView: 'auto',
         spaceBetween: 20,
@@ -331,7 +358,73 @@ header.addEventListener('click', (e) => {
 
 
     });
+    
+    let galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        autoplay: true,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+            },
+            575: {
+                slidesPerView: 4,
+            }
+        }
+    });
+    let galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 0,
+        autoplay: true,
+        navigation: {
+            nextEl: '.product__next',
+            prevEl: '.product__prev',
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        }
+    });
+    let cards = document.querySelectorAll('.card'),
+    oldPrice = document.querySelectorAll('.card__price'),
+    newPrice = document.querySelectorAll('.card__price-b'),
+    cardLike = document.querySelectorAll('.card__heart');
+    document.addEventListener('click', (e) => {
+        if(e.target && (e.target.classList.contains('card__heart') || e.target.classList.contains('js-card-heart'))){
+            e.preventDefault();
+        }
+    })
+    if(cards){
 
+        toggleCardLike(cardLike);
+
+    function toggleCardLike(like) {
+        for(let i=0; i < like.length; i++) {
+            let trigger = false;
+            console.log(like[i]);
+            if(like[i]){
+            let heartColor = like[i].querySelector('.js-card-heart');
+            like[i].onclick = function(x) {
+                return function() {
+                    if(heartColor){
+                        if(trigger){
+                            heartColor.style.fill = "#fff";
+                             trigger = false;
+                         }else{
+                            heartColor.style.fill = "#467BB9";
+                             trigger = true;
+                         }
+                    }
+                    
+                }
+            }(i)
+        }
+        }
+    }
+
+
+    }
     /* RATING */
     let ratingParent = document.querySelector('.js-rating'),
         ratingInput = document.querySelector('#js-rating'),

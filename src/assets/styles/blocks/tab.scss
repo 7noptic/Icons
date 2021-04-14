@@ -4,6 +4,7 @@
   visibility: hidden;
   opacity: 0;
   transition: $transition3;
+  width: 100%;
 
   &.active {
     animation: showTabs .5s;
