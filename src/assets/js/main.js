@@ -155,7 +155,7 @@ header.addEventListener('click', (e) => {
       main.classList.toggle('blur');
       footer.classList.toggle('blur');
   }
-
+    /* TABS */
     let headerIconsParent = document.querySelector('.header-category'),
         headerIconsLink = document.querySelectorAll('.js-header-icon-link'),
         headerIconsTab = document.querySelectorAll('.js-header-icon-tabs'),
@@ -173,7 +173,10 @@ header.addEventListener('click', (e) => {
         newsTab = document.querySelectorAll('.js-news-tab'),
         helpParent = document.querySelector('.selection-help'),
         helpLink = document.querySelectorAll('.js-help-link'),
-        helpTab = document.querySelectorAll('.js-help-tab');
+        helpTab = document.querySelectorAll('.js-help-tab'),
+        productParent = document.querySelector('.product-info'),
+        productLink = document.querySelectorAll('.js-product-link'),
+        productTab = document.querySelectorAll('.js-product-tab');
 
 
     if (headerIconsParent && headerShelfLink.length > 0) {
@@ -191,8 +194,11 @@ header.addEventListener('click', (e) => {
     if (helpParent && helpLink.length > 0) {
         toggleTabs(helpLink, helpTab, helpParent, 'js-help-link');
     }
+    if (productParent && productLink.length > 0) {
+        toggleTabs(productLink, productTab, productParent, 'js-product-link');
+    }
 
-    /* TABS */
+
     function toggleTabs(link, tabs, parent, classContains, subTabs, subLink, subContent) {
         hideTabs(link, tabs);
         showTabs(0, link, tabs);
@@ -343,6 +349,58 @@ header.addEventListener('click', (e) => {
         navigation: {
             nextEl: '.tags__next',
             prevEl: '.tags__prev'
+        },
+        breakpoints: {
+            0:{
+                spaceBetween: 10,
+            },
+            767:{
+                spaceBetween: 15,
+            },
+            991:{
+                spaceBetween: 20,
+            }
+        }
+
+
+    });
+    let sliderTags2 = new Swiper('.swiper-container-tags-2', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        observeParents: true,
+        observer: true,
+        allowSlidePrev: true,
+        allowSlideNext: true,
+
+        navigation: {
+            nextEl: '.tags__next-2',
+            prevEl: '.tags__prev-2'
+        },
+        breakpoints: {
+            0:{
+                spaceBetween: 10,
+            },
+            767:{
+                spaceBetween: 15,
+            },
+            991:{
+                spaceBetween: 20,
+            }
+        }
+
+
+    });
+    let sliderTags3 = new Swiper('.swiper-container-tags-3', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        observeParents: true,
+        observer: true,
+        allowSlidePrev: true,
+        allowSlideNext: true,
+
+        navigation: {
+            nextEl: '.tags__next-3',
+            prevEl: '.tags__prev-3'
         },
         breakpoints: {
             0:{

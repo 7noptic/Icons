@@ -17,11 +17,12 @@
 
   &-nav {
     display: flex;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 
     &__link {
-      font-size: 32px;
-      line-height: 39px;
+      font-size: 24px;
+      line-height: 30px;
       padding-right: 100px;
       display: block;
 
@@ -62,8 +63,8 @@
   .tab {
     &-nav {
       &__link {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 20px;
+        line-height: 28px;
         padding-right: 75px;
       }
     }
@@ -73,11 +74,11 @@
 @media screen and (max-width: 1199px) {
   .tab {
     &-nav {
-      padding-bottom: 25px;
+
 
       &__link {
-        font-size: 26px;
-        line-height: 34px;
+        font-size: 18px;
+        line-height: 28px;
         padding-right: 50px;
       }
     }
@@ -99,7 +100,8 @@
 @media screen and (max-width: 991px) {
   .tab {
     &-nav {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
 
       &__link {
         font-size: 18px;
@@ -125,7 +127,6 @@
 @media screen and (max-width: 767px) {
   .tab {
     &-nav {
-      padding-bottom: 20px;
 
       &__link {
         font-size: 16px;
@@ -153,7 +154,6 @@
     &-nav {
       flex-wrap: wrap;
       display: flex;
-      padding-bottom: 20px;
 
       &__link {
         font-size: 14px;

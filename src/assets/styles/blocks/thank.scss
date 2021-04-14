@@ -1,0 +1,128 @@
+.thank {
+  padding-bottom: 100px;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.333%;
+    margin-bottom: 30px;
+
+    &__img {
+      margin-bottom: 30px;
+    }
+
+    &__text {
+      padding: 0 15px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 18px;
+      color: #7A5F46;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 40px 0 70px;
+    }
+  }
+
+  &-product {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(#000, .15);
+    justify-content: space-between;
+
+    &:last-child, &:last-of-type {
+      border-bottom: 1px solid rgba(#000, .15);
+    }
+
+    &__name {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      width: 60%;
+      padding-right: 5%;
+    }
+
+    &__img {
+      margin-right: 30px;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    &__price {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &-result {
+    box-shadow: none;
+  }
+
+  &__btn {
+    margin: 0 auto;
+    padding: 8px 39px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .thank {
+    padding-bottom: 70px;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      &__img {
+        margin-bottom: 20px;
+      }
+
+      &__text {
+        padding: 0;
+        text-align: center;
+        font-size: 13px;
+        line-height: 17px;
+        color: #7A5F46;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0 50px;
+      }
+    }
+    &-product{
+      flex-wrap: wrap;
+      &__img{
+        width: 25%;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+      &__name{
+        width: 75%;
+        padding-right: 0;
+        margin-bottom: 25px;
+        padding-left: 15px;
+      }
+
+      &__price{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+    }
+  }
+}
