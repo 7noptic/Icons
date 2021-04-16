@@ -11,20 +11,27 @@
         color: $blue;
     }
     &__name{
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: 22px;
+        &-s{
+            font-size: 16px;
+            line-height: 24px;
+            padding: 5px 0;
+            }
     }
+    
     &__head{
         padding-bottom: 15px;
         position: relative;
         cursor: pointer;
         transition: $transition3;
+        padding-right: 35px;
         &::after{
             content: url('../img/arb.svg');
 
             position: absolute;
             right: 15px;
-            top: calc(50% - 8px);
+            top: calc(50% - 16px);
         }
         &::before{
             content: '';
@@ -70,6 +77,10 @@
         &__name{
             font-size: 16px;
             line-height: 22px;
+            &-s{
+                font-size: 15px;
+                line-height: 22px;
+                }
         }
         &__content{
             font-size: 12px;
@@ -93,6 +104,11 @@
         &__name{
             font-size: 15px;
             line-height: 20px;
+            &-s{
+                font-size: 14px;
+                line-height: 22px;
+                }
+            
         }
         &__content{
             font-size: 12px;

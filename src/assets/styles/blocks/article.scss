@@ -1,9 +1,16 @@
 .article{
+    padding-bottom: 80px;
+    &s{
+        padding-bottom: 80px;
+    }
     &__title{
         font-weight: bold;
 font-size: 24px;
 line-height: 30px;
 padding-bottom: 20px;
+    }
+    &-item{
+        padding: 25px 0;
     }
     &__header{
         display: flex;
@@ -44,37 +51,63 @@ padding-bottom: 15px;
     }
     &__preview{
         display: block;
-margin-bottom: 15px;
-overflow: hidden;
-text-overflow: ellipsis;
-display: -moz-box;
--moz-box-orient: vertical;
-display: -webkit-box;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-line-clamp: 3;
-box-orient: vertical;
-height: 60px;
-font-weight: 300;
-font-size: 14px;
-line-height: 20px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        -moz-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-clamp: 3;
+        box-orient: vertical;
+        height: 60px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    &__text{
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        p,div,ul{
+            padding-bottom: 15px!important;
+        }
+        ul>li{
+            padding-bottom: 10px!important;
+        }
+        h2,h3,h4,h5,h6{
+            padding-bottom: 20px!important;
+        }
+
     }
     &__link{
         font-weight: bold;
-font-size: 16px;
-line-height: 24px;
-position: relative;
-&::after{
-    content: url('../img/arb.svg');
-    position: absolute;
-    top: -4px;
-    right: -30px;
-    transform: rotate(-90deg);
-}
+        font-size: 16px;
+        line-height: 24px;
+        position: relative;
+        &::after{
+            content: url('../img/arb.svg');
+            position: absolute;
+            top: -5px;
+            right: -30px;
+            transform: rotate(-90deg);
+        }
+        &-back{
+            position: relative;
+            padding-left: 30px;
+            &::after{
+                right: auto;
+                top: -5px;
+                left: 0;
+                transform: rotate(90deg);
+            }
+        }
     }
 }
 @media screen and(max-width:1199px) {
     .article{
+        padding-bottom: 60px;
         &__title{
             font-size: 18px;
             line-height: 28px;
@@ -87,6 +120,7 @@ position: relative;
 }
 @media screen and (max-width: 575px){
 .article{
+    padding-bottom: 40px;
     &__views{
         display: none;
     }
@@ -108,6 +142,20 @@ position: relative;
     &__link{
         font-size: 12px;
         line-height: 15px;
+    }
+    &__text{
+        font-size: 12px;
+        line-height: 17px;
+        p,div,ul{
+            padding-bottom: 10px!important;
+        }
+        ul>li{
+            padding-bottom: 5px!important;
+        }
+        h2,h3,h4,h5,h6{
+            padding-bottom: 15px!important;
+        }
+
     }
 }
 }

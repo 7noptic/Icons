@@ -176,7 +176,16 @@ header.addEventListener('click', (e) => {
         helpTab = document.querySelectorAll('.js-help-tab'),
         productParent = document.querySelector('.product-info'),
         productLink = document.querySelectorAll('.js-product-link'),
-        productTab = document.querySelectorAll('.js-product-tab');
+        productTab = document.querySelectorAll('.js-product-tab'),
+        articleParent = document.querySelector('.articles'),
+        articleLink = document.querySelectorAll('.js-article-link'),
+        articleTab = document.querySelectorAll('.js-article-tab'),
+        formParent = document.querySelector('.form__sign'),
+        formLink = document.querySelectorAll('.js-form-link'),
+        formTab = document.querySelectorAll('.js-form-tab'),
+        profileParent = document.querySelector('.profile'),
+        profileLink = document.querySelectorAll('.js-profile-link'),
+        profileTab = document.querySelectorAll('.js-profile-tab');
 
 
     if (headerIconsParent && headerShelfLink.length > 0) {
@@ -196,6 +205,15 @@ header.addEventListener('click', (e) => {
     }
     if (productParent && productLink.length > 0) {
         toggleTabs(productLink, productTab, productParent, 'js-product-link');
+    }
+    if (articleParent && articleLink.length > 0) {
+        toggleTabs(articleLink, articleTab, articleParent, 'js-article-link');
+    }
+    if (formParent && formLink.length > 0) {
+        toggleTabs(formLink, formTab, formParent, 'js-form-link');
+    }
+    if (profileParent && profileLink.length > 0) {
+        toggleTabs(profileLink, profileTab, profileParent, 'js-profile-link');
     }
 
 
@@ -266,11 +284,23 @@ header.addEventListener('click', (e) => {
 
     let popularParent = document.querySelector('.popular'),
         popularLink = document.querySelectorAll('.popular__head'),
-        popularContent = document.querySelectorAll('.popular__content');
+        popularContent = document.querySelectorAll('.popular__content'),
+        jobParent = document.querySelector('.job'),
+        jobLink = document.querySelectorAll('.job-item__header'),
+        jobContent = document.querySelectorAll('.job-item__content'),
+        profileTableItemParent = document.querySelector('.profile'),
+        profileTableItemLink = document.querySelectorAll('.js-profile-table-link'),
+        profileTableItemContent = document.querySelectorAll('.js-profile-table-content');
 
-    if(popularParent && popularLink.length > 0 && popularContent.length > 0){
-        toggleContent(popularLink, popularContent, 'popular__head');
-    }
+        if(popularLink.length > 0 && popularContent.length > 0){
+            toggleContent(popularLink, popularContent, 'popular__head');
+        }
+        if(jobLink.length > 0 && jobContent.length > 0){
+            toggleContent(jobLink, jobContent, 'job-item__header');
+        }
+        if(profileTableItemLink.length > 0 && profileTableItemContent.length > 0){
+            toggleContent(profileTableItemLink, profileTableItemContent, 'js-profile-table-link');
+        }
 
     function toggleContent(link, content, linkClass) {
 

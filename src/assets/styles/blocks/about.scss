@@ -1,0 +1,93 @@
+.about{
+    &__logo{
+        margin-bottom: 50px;
+    }
+    padding-bottom: 80px;
+
+    &__text{
+        font-size: 14px;
+line-height: 20px;
+margin-bottom: 40px;
+        h2,h3,h4,h5,h6,ul,p{
+            padding-bottom: 30px;
+        }
+       
+        h2{
+            font-weight: normal;
+font-size: 24px;
+line-height: 30px;
+        }
+        p{
+            font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+        }
+        ul{
+            list-style: none;
+            margin: 0!important;
+            padding-left: 0!important;
+            li{
+                font-size: 14px;
+                padding-left: 35px!important;
+                max-width: 420px;
+line-height: 24px;
+                position: relative!important;
+                margin-bottom: 20px;
+                &::before{
+                    content: url('../img/arb.svg');
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    left: 7px;
+                    top: calc(50% - 16px);
+                }
+            }
+        }
+    }
+    &-img{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &__big{
+            width: 100%;
+        }
+        &__small{
+            width: 48%;
+        }
+        img{
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+    }
+}
+@media screen and(max-width:767px){
+    .about{
+        padding-bottom: 40px;
+        
+            &__text{
+                font-size: 13px;
+        line-height: 17px;
+                h2,h3,h4,h5,h6,ul,p{
+                    padding-bottom: 25px;
+                }
+               
+                h2{
+        font-size: 20px;
+        line-height: 26px;
+                }
+                p{
+        font-size: 13px;
+        line-height: 17px;
+                }
+                ul{
+                    li{
+                        font-size: 13px;
+        line-height: 17px;
+                        margin-bottom: 15px;
+                        &::before{
+                            top: calc(50% - 12px);
+                        }
+                        }
+                }
+            }
+        }
+}

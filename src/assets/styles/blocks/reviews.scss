@@ -1,11 +1,30 @@
 .reviews{
-    padding: 60px 0;
+    padding-bottom: 80px;
+    &-block{
+        padding: 60px 0;
+
+    }
     &__btn{
         padding: 12px 29px;
     }
+    
     &-item{
-        padding-right: 10%;
-        margin-bottom: 50px;
+        width: 90%;
+        margin-right: 10%;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        &__border{
+            border-bottom: 1px solid rgba($brown, .15);
+        }
+        &__photo{
+            display: flex;
+            margin-top: 20px;
+            img{
+                border-radius: 6px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+        }
         &__name{
             display: flex;
             align-items: center;
@@ -35,18 +54,43 @@ font-size: 14px;
 line-height: 20px;
         }
     }
+    &-answer{
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        &__left{
+            width: 20%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+        &__right{
+            width: 80%;
+        }
+    }
 }
 @media screen and(max-width:1199px){
     .reviews{
-        padding: 50px 0;
-        
+        padding-bottom: 60px;
+        &-block{
+            padding: 40px 0;
+    
+        }
     }
+    
 }
 @media screen and(max-width:991px){
     .reviews{
-        padding: 30px 0;
+        padding-bottom: 50px;
+        &-block{
+            padding: 30px 0;
+    
+        }
         &-item{
-            padding-right: 0;
+            margin-right: 0;
+            width: 100%;
             &__name{
                 font-size: 13px;
             }

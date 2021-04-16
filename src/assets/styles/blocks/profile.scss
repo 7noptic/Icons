@@ -1,0 +1,456 @@
+.profile{
+    padding-bottom: 100px;
+    &-nav{
+        display: flex;
+        flex-direction: column;
+        &__link{
+            font-size: 18px;
+            line-height: 24px;
+            display: block;
+            margin-bottom: 30px;
+            opacity: .6;
+            &.active{
+                font-weight: 600;
+                opacity: 1;
+            }
+        }
+    }
+    &__photo{
+        margin-right: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-width: 100px;
+        img{
+            border-radius: 50%;
+object-fit: contain;
+        }
+    }
+    &-data{
+        max-width: 625px;
+        &__text{
+            font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        padding-bottom: 20px;
+        &-b{
+            font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        padding-bottom: 20px;
+        }
+        
+        }
+        &__btn{
+            padding: 12px 30px;
+        }
+    }
+    &-table{
+        width: 100%;
+        &__header{
+            border-radius: 6px 6px 0px 0px;
+            background: rgba($brown, .03);
+            padding: 13px 20px;
+            width: 100%;
+            display: flex;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        
+        &__number{
+            padding-right: 15px;
+            width: 14%;
+            &-text{
+                display: none;
+            }
+        }
+        &__date{
+            padding-right: 15px;
+            width: 25%;
+        }
+        &__status{
+            width: 14%;
+            padding-right: 15px;
+        }
+        &__sum{
+            width: 14%;
+            padding-right: 15px;
+            font-weight: bold;
+        }
+        &__pay{
+            width: 33%;
+        }
+        &__num{
+            width: 25%;
+        }
+        &__data{
+            width: 15%;
+        }
+        &__plus,&__minus,&__balance{
+            width: 20%;
+            font-weight: 600;
+        }
+    }
+    &-header{
+        padding: 13px 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        border-radius: 6px 6px 0px 0px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        background: #fff;
+        border-bottom: 1px solid rgba($brown, .15);
+        position: relative;
+        transition: $transition3;
+        z-index: 1;
+        cursor: pointer;
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          
+        }
+        &:hover,&.active{
+            background: rgba($brown, .03);
+        }
+    }
+    &-content{
+        &__info{
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba($brown, .15);
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        &__update{
+            width: 67%;
+        }
+        &__track{
+            width: 33%;
+            span{
+                font-weight: 600;
+line-height: 17px;
+color: #FF0000;
+            }
+        }
+        &__name{
+            width: 45%;
+            padding-right: 15px;
+            display: flex;
+
+        }
+        &__pay{
+            width: 33%;
+        }
+        &__img{
+            min-width: 54px;
+            display: flex;
+            max-width: 54px;
+            margin-right: 15px;
+        }
+        &__nepridumalname{
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+           span{
+                display: block;
+                margin-top: 10px;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+        &__count{
+            width: 8%;
+            padding-right: 15px;
+            font-weight: 600;
+        }
+        &__sum{
+            width: 14%;
+            padding-right: 15px;
+            font-weight: bold;
+        }
+        &__btn{
+            padding: 12px 22px;
+            text-transform: uppercase;
+        }
+        &__data{
+            max-width: 395px;
+            padding-right: 15px;
+        }
+        &__text{
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 20px;
+            padding-bottom: 15px;
+            &-b{
+                font-weight: bold;
+            font-size: 14px;
+            line-height: 24px;
+            padding-bottom: 11px;
+            span{
+                color: #FF0000;
+            }
+            }
+        }
+        &__result{
+            span{
+line-height: 24px;
+font-weight: 600;
+            }
+        }
+
+    }
+}
+@media screen and(max-width:1439px) {
+    .profile{
+        &-table{
+            &__header{
+                font-size: 15px;
+            }
+        }
+        &-header{
+            font-size: 13px;
+        }
+        &-content{
+            &__info{
+                font-size: 13px;
+            }
+            &__text{
+                font-size: 13px;
+                &-b{
+                    font-size: 13px;
+                }
+            }
+            &__btn{
+                padding: 10px;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                font-size: 13px;
+            }
+        }
+    }
+}
+@media screen and(max-width: 1199px){
+    .profile{
+        &__photo{
+            margin-bottom: 40px;
+        }
+        &-nav{
+            &__link{
+                font-size: 16px;
+            }
+        }
+        &-table{
+            &__header{
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+        &-header{
+            text-align: center;
+            font-size: 12px;
+        }
+        &-content{
+            &__track{
+                text-align: center;
+            }
+            &__info{
+                font-size: 12px;
+            }
+            &__text{
+                font-size: 12px;
+                &-b{
+                    font-size: 12px;
+                }
+            }
+            &__btn{
+               
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media screen and(max-width: 991px){
+    .profile{
+        &-nav{
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+            &__link{
+                font-size: 16px;
+            }
+        }
+       
+    }
+}
+@media screen and(max-width: 767px){
+    .profile{
+       
+        &-table{
+            &__header{
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+        &-header{
+            text-align: center;
+            font-size: 11px;
+            &__number{
+                padding-right: 5px;
+            }
+            &__data{
+                padding-right: 5px;
+            }
+            &__status{
+                padding-right: 5px;
+            }
+            &__sum{
+                padding-right: 5px;
+            }
+        }
+
+        &-content{
+            &__img{
+                display: none;
+            }
+            &__track{
+                
+                text-align: center;
+            }
+            &__info{
+                font-size: 11px;
+            }
+            &__text{
+                font-size: 11px;
+                &-b{
+                    font-size: 11px;
+                }
+            }
+            &__btn{
+               
+                font-size: 11px;
+            }
+            &__count{
+                width: 11%;
+                padding-right: 5px;
+            }
+            &__name{
+                font-size: 11px;
+                width: 40%;
+            }
+            &__nepridumalname{
+                font-size: 11px;
+            }
+            &__sum{
+                width: 16%;
+            }
+            &__data{
+                max-width: 320px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 575px){
+    .profile{
+        &-nav{
+            margin-bottom: 15px;
+            &__link{
+                font-size: 13px;
+                text-align: center;
+                padding: 0 5px;
+            }
+        }
+        &__photo{
+            width: 100%;
+        }
+        &-table{
+            &__header{
+                display: none;
+            }
+            
+            &__number{
+                &-text{
+                    font-weight: 600;
+                    display: block;
+                }
+            }
+           
+            &__number, &__date, &__status, &__sum,&__num,&__data,&__plus,&__minus{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 20px;
+
+            }
+            &__pay{
+
+                width: 100%;
+            }
+            &__balance{
+                width: 100%;
+                font-weight: 600;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        &-header{
+            border: 1px solid rgba($brown, .15);
+border-radius: 6px;
+            flex-wrap: wrap;
+        }
+        &-content{
+            &__info{
+                flex-wrap: wrap;
+                
+            }
+            &__update{
+                width: 100%;
+                padding-bottom: 15px;
+                text-align: center;
+            }
+            &__track{
+                width: 100%;
+            }
+            &__name{
+                width: 100%;
+                padding-bottom: 15px;
+            }
+            &__count{
+                width: 50%;
+                padding-bottom: 15px;
+            }
+            &__sum{
+                width: 50%;
+                padding-bottom: 15px;
+            }
+            &__pay{
+                width: 100%;
+            }
+            margin-bottom: 20px;
+            &__text{
+                padding-bottom: 0;
+            }
+        }
+    }
+}

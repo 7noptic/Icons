@@ -1,0 +1,74 @@
+.cooperation{
+padding-bottom: 80px;
+
+    &__text{
+        font-size: 14px;
+line-height: 20px;
+        h2,h3,h4,h5,h6,ul,p{
+            padding-bottom: 30px;
+        }
+       
+        h2{
+            font-weight: normal;
+font-size: 24px;
+line-height: 30px;
+        }
+        p{
+            font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+        }
+        ul{
+            list-style: none;
+            margin: 0!important;
+            padding-left: 0!important;
+            li{
+                font-size: 14px;
+                padding-left: 35px!important;
+                max-width: 420px;
+line-height: 24px;
+                position: relative!important;
+                margin-bottom: 20px;
+                &::before{
+                    content: url('../img/arb.svg');
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    left: 7px;
+                    top: calc(50% - 16px);
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width:767px){
+    .cooperation{
+        padding-bottom: 50px;
+        
+            &__text{
+                font-size: 13px;
+        line-height: 17px;
+                h2,h3,h4,h5,h6,ul,p{
+                    padding-bottom: 25px;
+                }
+               
+                h2{
+        font-size: 20px;
+        line-height: 26px;
+                }
+                p{
+        font-size: 13px;
+        line-height: 17px;
+                }
+                ul{
+                    li{
+                        font-size: 13px;
+        line-height: 17px;
+                        margin-bottom: 15px;
+                        &::before{
+                            top: calc(50% - 12px);
+                        }
+                        }
+                }
+            }
+        }
+}

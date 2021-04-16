@@ -27,7 +27,7 @@
 @keyframes bot-to-top {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(700px);
   }
   100% {
     opacity: 1;
@@ -38,7 +38,7 @@
 @keyframes top-to-bot {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-700px);
   }
   100% {
     opacity: 1;
@@ -46,14 +46,28 @@
   }
 }
 
-
+.animation-r-to-l{
+  animation-name: opacity;
+  animation-duration: .3s;
+}
 @keyframes r-to-l {
   0% {
     opacity: 0;
     transform: translateX(360px);
   }
   100% {
-    opacity: 4;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes l-to-r {
+  0% {
+    opacity: 0;
+    transform: translateX(-360px);
+  }
+  100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
@@ -64,5 +78,13 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes rotate360 {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }
