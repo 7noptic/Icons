@@ -1,11 +1,7 @@
 .sitemap{
-  padding: 40px 0;
-}
-@media screen and (max-width: 991px){
-  .sitemap{
-    padding: 30px 0;
-    &__nav{
-      flex-direction: column;
-    }
+  margin-bottom: 60px;
+  &__nav{
+    display: flex;
+    flex-direction: column;
   }
 }
