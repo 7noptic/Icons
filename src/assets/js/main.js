@@ -71,9 +71,10 @@ header.addEventListener('click', (e) => {
       if (target && (target.classList.contains('js-modal-header') || target.classList.contains('adaptive-menu__exit'))) {
           openCloseModal(e, burgerMenu);
       }
-      if (target && (target.classList.contains('js-one-click') || target.classList.contains('modal-one-click__exit'))) {
+      if (target && (target.classList.contains('js-one-click') || target.classList.contains('modal-one-click__exit') || target.classList.contains('js-product-one-click'))) {
           openCloseModal(e, modalOneClick);
       }
+    
       if (target && (target.classList.contains('js-job') || target.classList.contains('modal-job__exit'))) {
           openCloseModal(e, modalJob);
       }
@@ -540,7 +541,7 @@ header.addEventListener('click', (e) => {
     }
     /* modal one click */
     let card = document.querySelectorAll('.card'),
-        cardPrice = document.querySelectorAll('.js-card-price'),
+        cardPrice = document.querySelectorAll('.card-price__new'),
         cardName = document.querySelectorAll('.card__name'),
         cardImg = document.querySelectorAll('.card__img'),
 
@@ -563,41 +564,38 @@ if(card || oneCardParent){
     getCardInfoToModalOneClick(card);
 }
  
+oneCardParent.addEventListener('click', (e)=>{
+    e.preventDefault();
+    if(e.target && e.target.classList.contains('js-product-one-click')){
+        modalOneClickName.innerHTML = oneCardName.innerHTML;
+        modalInputName.value = oneCardName.innerHTML
 
+        modalOneClickPrice.innerHTML = oneCardPrice.innerHTML;
+        modalInputPrice.value = oneCardPrice.innerHTML;
+
+
+        modalOneClickImg.childNodes[1].src = oneCardImg.childNodes[1].src;
+        modalInputUrl.value =  window.location;
+    }
+});
     function getCardInfoToModalOneClick(card) {
         for(let i=0; i < card.length; i++) {
             modalOneClickBtn[i].onclick = function(x) {
                 return function() {
-                    if(oneCardParent){
-                        console.log('work');
-                        modalOneClickName.innerHTML = oneCardName.innerHTML;
-                        modalInputName.value = oneCardName.innerHTML
-
-                        modalOneClickPrice.innerHTML = oneCardPrice.innerHTML;
-                        modalInputPrice.value = oneCardPrice.innerHTML;
-
-
-                        modalOneClickImg.childNodes[1].src = oneCardImg.childNodes[1].src;
-                        modalInputUrl.value =  window.location;
-                    }
-                    else{
+                   
                         modalOneClickName.innerHTML = cardName[i].innerHTML;
                         modalInputName.value = cardName[i].innerHTML
 
                         modalOneClickPrice.innerHTML = cardPrice[i].innerHTML;
                         modalInputPrice.value = cardPrice[i].innerHTML;
 
-
+                        console.log(cardImg[i]);
+                        console.log(cardImg[i].childNodes[1]);
                         modalOneClickImg.childNodes[1].src = cardImg[i].childNodes[1].src;
                         modalInputUrl.value = cardName[i].href;
-                    }
-
-
                 }
             }(i)
-
         }
-
     }
     /* RATING */
     let ratingParent = document.querySelector('.js-rating'),
