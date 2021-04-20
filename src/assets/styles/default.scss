@@ -143,3 +143,69 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+
+a.added_to_cart.wc-forward {
+  display: none;
+}
+
+.wpcf7 .ajax-loader {
+  display: none !important;
+}
+
+.wl-button__remove {
+  position: absolute;
+  top: 20px !important;
+  right: 26px !important;
+  display: block;
+  width: 20px !important;
+  height: 20px !important;
+  color: #6d6d6d;
+  fill: #6d6d6d;
+  background-color: transparent !important;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+
+@media (max-width: 767px) {
+  .wl-button__remove {
+      right: 10px !important;
+  }
+}
+.wpcf7 form.sent .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output,
+.wpcf7 form.spam .wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+  display: none !important;
+}
+
+div.wpcf7 .ajax-loader {
+  display: none !important;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -38,7 +38,9 @@
 
   &__img {
     padding-bottom: 40px;
-
+&-2{
+  margin: 18px 0;
+}
   }
 }
 
@@ -106,7 +108,10 @@
 &__title{
   text-align: center;
 }
-    &__img{
+&-border{
+  display: none;
+}
+    &__img,&__img-2{
       display: flex;
       justify-content: center;
     }

@@ -25,6 +25,13 @@ header.addEventListener('click', (e) => {
         searchForm.classList.toggle('active');
     }
 });
+ /*BUTTON READMORE */
+ new Readmore('.category-tags', {
+    speed: 150,
+    collapsedHeight: 192,
+    moreLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Показать еще</a>',
+    lessLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Скрыть</a>',
+});
       /* MODAL */
       let modalBlock = document.querySelector('.js-sidebars'),
       allModal = document.querySelectorAll('.js-sidebars > section'),
@@ -38,13 +45,12 @@ header.addEventListener('click', (e) => {
       modalResetPass = document.querySelector('.modal-reset-pass'),
       modalSubscribe = document.querySelector('.modal-subscribe'),
       modalReviews = document.querySelector('.modal-reviews'),
+      modalBasket = document.querySelector('.modal-basket'),
       regionSelect = document.querySelectorAll('.modal-region__link'),
       regionBtn = document.querySelector('.js-region-city'),
       burgerMenu = document.querySelector('.adaptive-menu');
 
   if (localStorage.getItem('city') != null) {
-      console.log(localStorage.getItem('city'));
-      console.log(typeof (localStorage.getItem('city')));
       regionBtn.innerHTML = localStorage.getItem('city');
   } else {
       regionBtn.innerHTML = 'Москва';
@@ -57,8 +63,11 @@ header.addEventListener('click', (e) => {
           openCloseModal(e, modalCall);
       }
       if (target && (target.classList.contains('js-reviews') || target.classList.contains('modal-reviews__exit'))) {
-          openCloseModal(e, modalReviews);
-      }
+        openCloseModal(e, modalReviews);
+    }
+    if (target && (target.classList.contains('js-basket') || target.classList.contains('modal-basket__exit'))) {
+        openCloseModal(e, modalBasket);
+    }
       if (target && (target.classList.contains('js-modal-header') || target.classList.contains('adaptive-menu__exit'))) {
           openCloseModal(e, burgerMenu);
       }
@@ -177,6 +186,9 @@ header.addEventListener('click', (e) => {
         productParent = document.querySelector('.product-info'),
         productLink = document.querySelectorAll('.js-product-link'),
         productTab = document.querySelectorAll('.js-product-tab'),
+        bannerParent = document.querySelector('.banner'),
+        bannerLink = document.querySelectorAll('.js-banner-link'),
+        bannerTab = document.querySelectorAll('.js-banner-tab'),
         articleParent = document.querySelector('.articles'),
         articleLink = document.querySelectorAll('.js-article-link'),
         articleTab = document.querySelectorAll('.js-article-tab'),
@@ -205,6 +217,9 @@ header.addEventListener('click', (e) => {
     }
     if (productParent && productLink.length > 0) {
         toggleTabs(productLink, productTab, productParent, 'js-product-link');
+    }
+    if (bannerParent && bannerLink.length > 0 && bannerTab.length > 0 && bannerLink.length == bannerTab.length) {
+        toggleTabs(bannerLink, bannerTab, bannerParent, 'js-banner-link');
     }
     if (articleParent && articleLink.length > 0) {
         toggleTabs(articleLink, articleTab, articleParent, 'js-article-link');
@@ -290,7 +305,11 @@ header.addEventListener('click', (e) => {
         jobContent = document.querySelectorAll('.job-item__content'),
         profileTableItemParent = document.querySelector('.profile'),
         profileTableItemLink = document.querySelectorAll('.js-profile-table-link'),
-        profileTableItemContent = document.querySelectorAll('.js-profile-table-content');
+        profileTableItemContent = document.querySelectorAll('.js-profile-table-content'),
+        filterLink = document.querySelectorAll('.category-filter__header'),
+        filterContent = document.querySelectorAll('.category-filter__content'),
+        categoryBtn = document.querySelectorAll('.category-filter__btn'),
+        categoryContent = document.querySelectorAll('.category-filter__wrapper');
 
         if(popularLink.length > 0 && popularContent.length > 0){
             toggleContent(popularLink, popularContent, 'popular__head');
@@ -301,6 +320,13 @@ header.addEventListener('click', (e) => {
         if(profileTableItemLink.length > 0 && profileTableItemContent.length > 0){
             toggleContent(profileTableItemLink, profileTableItemContent, 'js-profile-table-link');
         }
+        if (filterLink.length > 0) {
+            toggleContent(filterLink, filterContent, 'category-filter__header');
+        }
+        if (categoryBtn.length > 0) {
+            toggleContent(categoryBtn, categoryContent, 'category-filter__btn');
+        }
+
 
     function toggleContent(link, content, linkClass) {
 
@@ -490,7 +516,6 @@ header.addEventListener('click', (e) => {
     function toggleCardLike(like) {
         for(let i=0; i < like.length; i++) {
             let trigger = false;
-            console.log(like[i]);
             if(like[i]){
             let heartColor = like[i].querySelector('.js-card-heart');
             like[i].onclick = function(x) {
@@ -513,6 +538,67 @@ header.addEventListener('click', (e) => {
 
 
     }
+    /* modal one click */
+    let card = document.querySelectorAll('.card'),
+        cardPrice = document.querySelectorAll('.js-card-price'),
+        cardName = document.querySelectorAll('.card__name'),
+        cardImg = document.querySelectorAll('.card__img'),
+
+        modalOneClickImg = document.querySelector('.modal-one-click__img'),
+        modalOneClickName = document.querySelector('.modal-one-click__name'),
+        modalOneClickPrice = document.querySelector('.modal-one-click__price'),
+        modalOneClickBtn = document.querySelectorAll('.js-one-click'),
+
+        modalInputName = document.querySelector('#js-modal-one-click-name'),
+        modalInputPrice = document.querySelector('#js-modal-one-click-price'),
+        modalInputUrl = document.querySelector('#js-modal-one-click-url'),
+        oneCardParent = document.querySelector('.product__info'),
+        oneCardName = document.querySelector('.product__title'),
+        oneCardPrice = document.querySelector('.product-price__new'),
+        oneCardImg = document.querySelector('.product__img');
+
+
+
+if(card || oneCardParent){
+    getCardInfoToModalOneClick(card);
+}
+ 
+
+    function getCardInfoToModalOneClick(card) {
+        for(let i=0; i < card.length; i++) {
+            modalOneClickBtn[i].onclick = function(x) {
+                return function() {
+                    if(oneCardParent){
+                        console.log('work');
+                        modalOneClickName.innerHTML = oneCardName.innerHTML;
+                        modalInputName.value = oneCardName.innerHTML
+
+                        modalOneClickPrice.innerHTML = oneCardPrice.innerHTML;
+                        modalInputPrice.value = oneCardPrice.innerHTML;
+
+
+                        modalOneClickImg.childNodes[1].src = oneCardImg.childNodes[1].src;
+                        modalInputUrl.value =  window.location;
+                    }
+                    else{
+                        modalOneClickName.innerHTML = cardName[i].innerHTML;
+                        modalInputName.value = cardName[i].innerHTML
+
+                        modalOneClickPrice.innerHTML = cardPrice[i].innerHTML;
+                        modalInputPrice.value = cardPrice[i].innerHTML;
+
+
+                        modalOneClickImg.childNodes[1].src = cardImg[i].childNodes[1].src;
+                        modalInputUrl.value = cardName[i].href;
+                    }
+
+
+                }
+            }(i)
+
+        }
+
+    }
     /* RATING */
     let ratingParent = document.querySelector('.js-rating'),
         ratingInput = document.querySelector('#js-rating'),
@@ -533,6 +619,32 @@ header.addEventListener('click', (e) => {
                         return
                     } else {
                         ratingStar[i].classList.add('active');
+                    }
+                }
+            }
+
+        });
+    }
+
+    let modalRatingParent = document.querySelector('.modal-reviews'),
+        modalRatingInput = document.querySelector('#js-rating-modal'),
+        modalRatingStar = document.querySelectorAll('.js-rating-modal > li');
+
+    if (modalRatingParent) {
+        modalRatingParent.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = event.target;
+            if (target && target.tagName == 'LI') {
+                for (let i = 0; i < modalRatingStar.length; i++) {
+                    modalRatingStar[i].classList.remove('active')
+                }
+                for (let i = 0; i => ratingStar.length; i++) {
+                    if (modalRatingStar[i] == target) {
+                        modalRatingStar[i].classList.add('active');
+                        modalRatingInput.value = ++i;
+                        return
+                    } else {
+                        modalRatingStar[i].classList.add('active');
                     }
                 }
             }
