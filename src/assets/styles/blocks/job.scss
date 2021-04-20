@@ -23,7 +23,7 @@
             &::before{
                 content: url('../img/arb.svg');
                 position: absolute;
-                top: 18px;
+                top: 22px;
                 right: 5px;
                 display: block;
                 transition: $transition3;
@@ -33,6 +33,7 @@
                 &::before{
                     transform: rotate(180deg);
                     filter: contrast(100%);
+                    top: 14px;
                 }  
             }
             &::after{
@@ -78,6 +79,7 @@
         }
     }
 }
+
 @media screen and (max-width: 767px){
     .job{
         padding-bottom: 50px; 

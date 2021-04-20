@@ -7,6 +7,21 @@
     &__btn{
         padding: 12px 29px;
     }
+    &__link{
+        font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+padding-right: 30px;
+position: relative;
+&::before{
+content: url('../img/arb.svg');
+transform: rotate(-90deg);
+position: absolute;
+top: -4px;
+right: 0;
+display: block;
+}
+    }
     
     &-item{
         width: 90%;
@@ -19,6 +34,7 @@
         &__photo{
             display: flex;
             margin-top: 20px;
+            flex-wrap: wrap;
             img{
                 border-radius: 6px;
                 margin-right: 20px;
@@ -100,6 +116,18 @@ line-height: 20px;
             &__content{
 font-size: 13px;
             }
+        }
+    }
+}
+@media screen and(max-width:575px){
+    .reviews{
+        &__btn{
+            margin-bottom: 15px;
+        }
+        &__link{
+            margin-bottom: 15px;
+           padding-left: 31px;
+           
         }
     }
 }

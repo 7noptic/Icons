@@ -110,6 +110,22 @@
 }
 @media screen and (max-width: 575px){
   .basket{
+    &-promo{
+      form{
+        flex-wrap: wrap;
+      }
+      &__input{
+        margin-right: 0;
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      &__btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
     &-item{
       flex-wrap: wrap;
       &__img{

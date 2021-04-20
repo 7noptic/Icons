@@ -19,8 +19,11 @@ font-size: 10px;
 line-height: 13px;
 border-radius: $radiusBtn;
 background-color: #fff;
+z-index: 10000;
+
   }
   &__heart{
+    z-index: 10000;
     position: absolute;
     top: 15px;
     left: 15px;
