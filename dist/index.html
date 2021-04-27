@@ -7650,7 +7650,7 @@
                 </form>
               </div>
               <div class="col-12 col-sm-6 col-md-3">
-                <input type="submit" class="form-control btn btn-blueborder selection__btn">
+                <input type="submit" class="form-control btn btn-blueborder selection__btn" value="ПОДОБРАТЬ ИКОНУ">
               </div>
             </div>
           </div>
@@ -8131,9 +8131,9 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <nav class="news-nav">
-              <a href="#" class="btn btn-transparent news-nav__link js-news-link">СТАТЬИ</a>
-              <a href="#" class="btn btn-transparent news-nav__link js-news-link">НОВОСТИ</a>
+            <nav class="tab-nav news-nav">
+              <a href="#" class="tab-nav__link js-news-link">СТАТЬИ</a>
+              <a href="#" class="tab-nav__link js-news-link">НОВОСТИ</a>
             </nav>
           </div>
           <div class="col-12 col-lg-6">
@@ -8861,9 +8861,7 @@
         <h3 class="modal__title modal-one-click__title">
           Купить в 1 клик
         </h3>
-        <h4 class="modal__subtitle">
-          Заполните форму и мы Вам перезвоним
-        </h4>
+
         <div class="modal-one-click__item">
           <div class="row">
 
@@ -8881,13 +8879,8 @@
               <div class="row">
 
 
-                <div class="col-5">
-                  <div class="modal-one-click__text">
-                    Цена
-                  </div>
-                </div>
 
-                <div class="col-7">
+                <div class="col-12">
 
                   <p class="modal-one-click__price">
                     1050 ₽
@@ -8905,17 +8898,18 @@
             <div class="modal-form__wrapper">
 
               <span>
-                <input type="tel" class="form-control form__input" placeholder="Телефон">
+                <input type="tel" class="form-control form__input" placeholder="Ваш телефон">
               </span>
+              <div class="modal-form__agreement">
+                Я согласен условиями предоставления
+                услуг и обработкой моих персональных
+                данных при нажатии “Заказать звонок”
+              </div>
               <span>
                 <button type="submit" class="btn modal-form__btn">КУПИТЬ</button>
               </span>
             </div>
-            <div class="modal-form__agreement">
-              Я согласен условиями предоставления
-              услуг и обработкой моих персональных
-              данных при нажатии “Заказать звонок”
-            </div>
+
             <input type="hidden" id="js-modal-one-click-name" value="">
             <input type="hidden" id="js-modal-one-click-price" value="">
             <input type="hidden" id="js-modal-one-click-url" value="">
@@ -9217,8 +9211,7 @@
           <img src="img/mex.svg" alt="" class="modal-reviews__exit">
         </a>
         <h3 class="modal__title">
-          Заполните форму <br>
-          и мы Вам перезвоним
+          Оставить отзыв
         </h3>
         <div class="modal-form">
           <form action="POST">

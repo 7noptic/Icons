@@ -1,6 +1,12 @@
 .thank {
   padding-bottom: 100px;
-
+&__subtitle{
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 25px;
+}
   &-item {
     display: flex;
     flex-direction: column;

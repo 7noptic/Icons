@@ -2795,15 +2795,13 @@
           <div class="selection__border"><img src="img/seb.svg" alt=""></div>
           <div class="col-12">
             <div class="row selection__content">
-              <div class="col-12 col-md-7">
-                <div class="selection__title"><img src="img/seb1.svg" alt=""></div>
-                <h2 class="selection__subtitle">Будьте в курсе новостей, акций и новинок</h2>
-              </div>
               <div class="col-12 col-md-5">
-                <form action="post"><input type="text" placeholder="Ваше email" class="form-control form__input selection__input"> <input type="submit" class="form-control btn btn-blueborder selection__btn selection__btn-2" value="ПОДПИСАТЬСЯ">
-                  <p class="selection__agreement">Нажимая «Подписаться», я соглашаюсь c обработкой персональных данных на условиях Политики конфиденциальности.</p>
-                </form>
+                <div class="selection__title"><img src="img/tit.svg" alt=""></div>
               </div>
+              <div class="col-12 col-sm-6 col-md-4">
+                <form action="post"><input type="text" placeholder="Ваше имя" class="form-control form__input"></form>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3"><input type="submit" class="form-control btn btn-blueborder selection__btn" value="ПОДОБРАТЬ ИКОНУ"></div>
             </div>
           </div>
           <div class="selection__border"><img src="img/seb.svg" alt=""></div>
@@ -2953,7 +2951,6 @@
     <section class="modal modal-one-click">
       <div class="modal__wrapper modal-one-click__wrapper"><a href="#" class="modal__exit"><img src="img/mex.svg" alt="" class="modal-one-click__exit"></a>
         <h3 class="modal__title modal-one-click__title">Купить в 1 клик</h3>
-        <h4 class="modal__subtitle">Заполните форму и мы Вам перезвоним</h4>
         <div class="modal-one-click__item">
           <div class="row">
             <div class="col-4">
@@ -2961,10 +2958,7 @@
             </div>
             <div class="col-8"><a href="#" class="modal-one-click__name">Семга свежемороженая Премиум чилийская</a>
               <div class="row">
-                <div class="col-5">
-                  <div class="modal-one-click__text">Цена</div>
-                </div>
-                <div class="col-7">
+                <div class="col-12">
                   <p class="modal-one-click__price">1050 ₽</p>
                 </div>
               </div>
@@ -2973,8 +2967,9 @@
         </div>
         <div class="modal-form">
           <form action="POST">
-            <div class="modal-form__wrapper"><span><input type="tel" class="form-control form__input" placeholder="Телефон"> </span><span><button type="submit" class="btn modal-form__btn">КУПИТЬ</button></span></div>
-            <div class="modal-form__agreement">Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии “Заказать звонок”</div><input type="hidden" id="js-modal-one-click-name" value=""> <input type="hidden" id="js-modal-one-click-price" value=""> <input type="hidden" id="js-modal-one-click-url" value="">
+            <div class="modal-form__wrapper"><span><input type="tel" class="form-control form__input" placeholder="Ваш телефон"></span>
+              <div class="modal-form__agreement">Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии “Заказать звонок”</div><span><button type="submit" class="btn modal-form__btn">КУПИТЬ</button></span>
+            </div><input type="hidden" id="js-modal-one-click-name" value=""> <input type="hidden" id="js-modal-one-click-price" value=""> <input type="hidden" id="js-modal-one-click-url" value="">
           </form>
         </div>
       </div>
@@ -3095,7 +3090,7 @@
     </section>
     <section class="modal modal-reviews">
       <div class="modal__wrapper modal-reviews__wrapper"><a href="#" class="modal__exit"><img src="img/mex.svg" alt="" class="modal-reviews__exit"></a>
-        <h3 class="modal__title">Заполните форму<br>и мы Вам перезвоним</h3>
+        <h3 class="modal__title">Оставить отзыв</h3>
         <div class="modal-form">
           <form action="POST">
             <div class="modal-form__wrapper"><span><textarea name="your-reviews-2" cols="30" rows="10" class="form-control form__input form__textarea-long" placeholder="Отзыв"></textarea> </span><span><input type="text" class="form-control form__input" placeholder="Имя"> </span><span><input type="number" placeholder="Возраст" class="form-control form__input"> </span><span><input type="email" placeholder="Email" class="form-control form__input"> </span><span><label for="your-photo" class="form__upload">Загрузить фото</label> <input type="file" id="your-photo" class="form-control d-none"></span>

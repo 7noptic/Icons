@@ -1,170 +1,171 @@
 'use script';
-import Swiper, {Autoplay, Navigation, Pagination,Thumbs} from 'swiper';
+import Swiper, {Autoplay, Navigation, Pagination, Thumbs} from 'swiper';
 import Readmore from "readmore-js";
 import GLightbox from 'glightbox';
 
-Swiper.use([Navigation, Pagination, Autoplay,Thumbs]);
+Swiper.use([Navigation, Pagination, Autoplay, Thumbs]);
 
 
 window.addEventListener('DOMContentLoaded', () => {
     /* HAMBURGER MENU IN HEADER*/
     let header = document.querySelector('.header'),
-    main = document.querySelector('main'),
-    footer = document.querySelector('.footer'),
-    searchForm = header.querySelector('.form-wrapper-header'),
-    hamburgerBtn = header.querySelector('.js-burger'),
-    hamburgerMenu = header.querySelector('.hamburger-menu');
+        main = document.querySelector('main'),
+        footer = document.querySelector('.footer'),
+        searchForm = header.querySelector('.form-wrapper-header'),
+        hamburgerBtn = header.querySelector('.js-burger'),
+        hamburgerMenu = header.querySelector('.hamburger-menu');
 
 
-header.addEventListener('click', (e) => {
-    if (e.target && e.target.classList.contains('js-burger')) {
-        hamburgerMenu.classList.toggle('active');
-        hamburgerBtn.classList.toggle('active');
+    header.addEventListener('click', (e) => {
+        if (e.target && e.target.classList.contains('js-burger')) {
+            hamburgerMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
+        }
+        if (e.target && e.target.classList.contains('js-search')) {
+            searchForm.classList.toggle('active');
+        }
+    });
+    /*BUTTON READMORE */
+    new Readmore('.category-tags', {
+        speed: 150,
+        collapsedHeight: 192,
+        moreLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Показать еще</a>',
+        lessLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Скрыть</a>',
+    });
+    /* MODAL */
+    let modalBlock = document.querySelector('.js-sidebars'),
+        allModal = document.querySelectorAll('.js-sidebars > section'),
+        modalCall = document.querySelector('.modal-call'),
+        modalQuest = document.querySelector('.modal-quest'),
+        modalRegion = document.querySelector('.modal-region'),
+        modalOneClick = document.querySelector('.modal-one-click'),
+        modalAssortment = document.querySelector('.modal-assortment'),
+        modalJob = document.querySelector('.modal-job'),
+        modalPersonal = document.querySelector('.modal-personal'),
+        modalResetPass = document.querySelector('.modal-reset-pass'),
+        modalSubscribe = document.querySelector('.modal-subscribe'),
+        modalReviews = document.querySelector('.modal-reviews'),
+        modalBasket = document.querySelector('.modal-basket'),
+        regionSelect = document.querySelectorAll('.modal-region__link'),
+        regionBtn = document.querySelector('.js-region-city'),
+        burgerMenu = document.querySelector('.adaptive-menu');
+
+    if (localStorage.getItem('city') != null) {
+        regionBtn.innerHTML = localStorage.getItem('city');
+    } else {
+        regionBtn.innerHTML = 'Москва';
     }
-    if (e.target && e.target.classList.contains('js-search')) {
-        searchForm.classList.toggle('active');
+    document.addEventListener('click', e => {
+
+        let target = e.target;
+
+        if (target && (target.classList.contains('js-call') || target.classList.contains('modal-call__exit'))) {
+            openCloseModal(e, modalCall);
+        }
+        if (target && (target.classList.contains('js-reviews') || target.classList.contains('modal-reviews__exit'))) {
+            openCloseModal(e, modalReviews);
+        }
+        if (target && (target.classList.contains('js-basket') || target.classList.contains('modal-basket__exit'))) {
+            openCloseModal(e, modalBasket);
+        }
+        if (target && (target.classList.contains('js-modal-header') || target.classList.contains('adaptive-menu__exit'))) {
+            openCloseModal(e, burgerMenu);
+        }
+        if (target && (target.classList.contains('js-one-click') || target.classList.contains('modal-one-click__exit') || target.classList.contains('js-product-one-click'))) {
+            openCloseModal(e, modalOneClick);
+        }
+
+        if (target && (target.classList.contains('js-job') || target.classList.contains('modal-job__exit'))) {
+            openCloseModal(e, modalJob);
+        }
+        if (target && (target.classList.contains('js-subscribe') || target.classList.contains('modal-subscribe__exit'))) {
+            openCloseModal(e, modalSubscribe);
+        }
+        if (target && (target.classList.contains('js-assortment') || target.classList.contains('modal-assortment__exit'))) {
+            openCloseModal(e, modalAssortment);
+        }
+        if (target && (target.classList.contains('js-region') || target.classList.contains('modal-region__exit'))) {
+            openCloseModal(e, modalRegion);
+        }
+        if (target && (target.classList.contains('js-quest') || target.classList.contains('modal-quest__exit'))) {
+            openCloseModal(e, modalQuest);
+        }
+        if (target && (target.classList.contains('js-personal-data') || target.classList.contains('modal-personal__exit'))) {
+            openCloseModal(e, modalPersonal);
+        }
+        if (target && (target.classList.contains('js-reset-pass') || target.classList.contains('modal-reset-pass__exit'))) {
+            openCloseModal(e, modalResetPass);
+        }
+        if (target.classList.contains('modal-region__link')) {
+            for (let i = 0; i < regionSelect.length; i++) {
+                if (regionSelect[i] == target) {
+                    let citiValue = regionSelect[i].innerHTML;
+                    localStorage.setItem('city', citiValue)
+                    let testValue = localStorage.getItem('city')
+                    if (testValue == 'undifiend') {
+                        regionBtn.innerHTML = 'Москва';
+                    } else {
+                        regionBtn.innerHTML = testValue.innerHTML;
+                        regionBtn.innerHTML = testValue;
+                    }
+
+                }
+            }
+            /*
+            regionSelect.forEach(item => {
+                if (item == target) {
+                    let citiValue = item.innerHTML;
+                    localStorage.setItem('city', citiValue)
+                    let testValue = localStorage.getItem('city')
+                    regionBtn.innerHTML = testValue.innerHTML;
+                    regionBtn.innerHTML = testValue;
+                }
+            });
+            */
+            openCloseModal(e, modalRegion);
+        } else if (target.classList.contains('js-region-close')) {
+            let city = document.querySelector('.js-select-city');
+            localStorage.setItem('city', city.innerHTML);
+            let testValue = localStorage.getItem('city');
+            regionBtn.innerHTML = testValue;
+            openCloseModal(e, modalRegion);
+        }
+
+
+        /* ЗАКРЫТИЕ ПО КЛИКУ НА САЙДБАР */
+        if (target && target.classList.contains('sidebar-bg')) {
+            e.preventDefault();
+            //html.classList.toggle('lock');
+            modalBlock.classList.toggle('sidebar-bg');
+            for (let i = 0; i < allModal.length; i++) {
+                if (allModal[i].classList.toggle('active')) {
+                    allModal[i].classList.remove('active');
+                }
+            }
+            header.classList.toggle('blur');
+            main.classList.toggle('blur');
+            footer.classList.toggle('blur');
+            /*
+            allModal.forEach(item => {
+                if (item.classList.toggle('active')) {
+                    item.classList.remove('active');
+                }
+            });*/
+        }
+
+    });
+
+    function openCloseModal(e, modal) {
+        e.preventDefault();
+        //html.classList.toggle('lock');
+        //body.classList.toggle('lock');
+        modalBlock.classList.toggle('sidebar-bg');
+        modal.classList.toggle('active');
+        header.classList.toggle('blur');
+        main.classList.toggle('blur');
+        footer.classList.toggle('blur');
     }
-});
- /*BUTTON READMORE */
- new Readmore('.category-tags', {
-    speed: 150,
-    collapsedHeight: 192,
-    moreLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Показать еще</a>',
-    lessLink: '<a href="#" class="btn btn-blueborder category-tags__btn">Скрыть</a>',
-});
-      /* MODAL */
-      let modalBlock = document.querySelector('.js-sidebars'),
-      allModal = document.querySelectorAll('.js-sidebars > section'),
-      modalCall = document.querySelector('.modal-call'),
-      modalQuest = document.querySelector('.modal-quest'),
-      modalRegion = document.querySelector('.modal-region'),
-      modalOneClick = document.querySelector('.modal-one-click'),
-      modalAssortment = document.querySelector('.modal-assortment'),
-      modalJob = document.querySelector('.modal-job'),
-      modalPersonal = document.querySelector('.modal-personal'),
-      modalResetPass = document.querySelector('.modal-reset-pass'),
-      modalSubscribe = document.querySelector('.modal-subscribe'),
-      modalReviews = document.querySelector('.modal-reviews'),
-      modalBasket = document.querySelector('.modal-basket'),
-      regionSelect = document.querySelectorAll('.modal-region__link'),
-      regionBtn = document.querySelector('.js-region-city'),
-      burgerMenu = document.querySelector('.adaptive-menu');
 
-  if (localStorage.getItem('city') != null) {
-      regionBtn.innerHTML = localStorage.getItem('city');
-  } else {
-      regionBtn.innerHTML = 'Москва';
-  }
-  document.addEventListener('click', e => {
-
-      let target = e.target;
-
-      if (target && (target.classList.contains('js-call') || target.classList.contains('modal-call__exit'))) {
-          openCloseModal(e, modalCall);
-      }
-      if (target && (target.classList.contains('js-reviews') || target.classList.contains('modal-reviews__exit'))) {
-        openCloseModal(e, modalReviews);
-    }
-    if (target && (target.classList.contains('js-basket') || target.classList.contains('modal-basket__exit'))) {
-        openCloseModal(e, modalBasket);
-    }
-      if (target && (target.classList.contains('js-modal-header') || target.classList.contains('adaptive-menu__exit'))) {
-          openCloseModal(e, burgerMenu);
-      }
-      if (target && (target.classList.contains('js-one-click') || target.classList.contains('modal-one-click__exit') || target.classList.contains('js-product-one-click'))) {
-          openCloseModal(e, modalOneClick);
-      }
-    
-      if (target && (target.classList.contains('js-job') || target.classList.contains('modal-job__exit'))) {
-          openCloseModal(e, modalJob);
-      }
-      if (target && (target.classList.contains('js-subscribe') || target.classList.contains('modal-subscribe__exit'))) {
-          openCloseModal(e, modalSubscribe);
-      }
-      if (target && (target.classList.contains('js-assortment') || target.classList.contains('modal-assortment__exit'))) {
-          openCloseModal(e, modalAssortment);
-      }
-      if (target && (target.classList.contains('js-region') || target.classList.contains('modal-region__exit'))) {
-          openCloseModal(e, modalRegion);
-      }
-      if (target && (target.classList.contains('js-quest') || target.classList.contains('modal-quest__exit'))) {
-          openCloseModal(e, modalQuest);
-      }
-      if (target && (target.classList.contains('js-personal-data') || target.classList.contains('modal-personal__exit'))) {
-          openCloseModal(e, modalPersonal);
-      }
-      if (target && (target.classList.contains('js-reset-pass') || target.classList.contains('modal-reset-pass__exit'))) {
-          openCloseModal(e, modalResetPass);
-      }
-      if (target.classList.contains('modal-region__link')) {
-          for (let i = 0; i < regionSelect.length; i++) {
-              if (regionSelect[i] == target) {
-                  let citiValue = regionSelect[i].innerHTML;
-                  localStorage.setItem('city', citiValue)
-                  let testValue = localStorage.getItem('city')
-                  if (testValue == 'undifiend') {
-                      regionBtn.innerHTML = 'Москва';
-                  } else {
-                      regionBtn.innerHTML = testValue.innerHTML;
-                      regionBtn.innerHTML = testValue;
-                  }
-
-              }
-          }
-          /*
-          regionSelect.forEach(item => {
-              if (item == target) {
-                  let citiValue = item.innerHTML;
-                  localStorage.setItem('city', citiValue)
-                  let testValue = localStorage.getItem('city')
-                  regionBtn.innerHTML = testValue.innerHTML;
-                  regionBtn.innerHTML = testValue;
-              }
-          });
-          */
-          openCloseModal(e, modalRegion);
-      } else if (target.classList.contains('js-region-close')) {
-          let city = document.querySelector('.js-select-city');
-          localStorage.setItem('city', city.innerHTML);
-          let testValue = localStorage.getItem('city');
-          regionBtn.innerHTML = testValue;
-          openCloseModal(e, modalRegion);
-      }
-
-
-      /* ЗАКРЫТИЕ ПО КЛИКУ НА САЙДБАР */
-      if (target && target.classList.contains('sidebar-bg')) {
-          e.preventDefault();
-          //html.classList.toggle('lock');
-          modalBlock.classList.toggle('sidebar-bg');
-          for (let i = 0; i < allModal.length; i++) {
-              if (allModal[i].classList.toggle('active')) {
-                  allModal[i].classList.remove('active');
-              }
-          }
-          header.classList.toggle('blur');
-          main.classList.toggle('blur');
-          footer.classList.toggle('blur');
-          /*
-          allModal.forEach(item => {
-              if (item.classList.toggle('active')) {
-                  item.classList.remove('active');
-              }
-          });*/
-      }
-
-  });
-
-  function openCloseModal(e, modal) {
-      e.preventDefault();
-      //html.classList.toggle('lock');
-      //body.classList.toggle('lock');
-      modalBlock.classList.toggle('sidebar-bg');
-      modal.classList.toggle('active');
-      header.classList.toggle('blur');
-      main.classList.toggle('blur');
-      footer.classList.toggle('blur');
-  }
     /* TABS */
     let headerIconsParent = document.querySelector('.header-category'),
         headerIconsLink = document.querySelectorAll('.js-header-icon-link'),
@@ -249,7 +250,7 @@ header.addEventListener('click', (e) => {
         parent.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains(classContains)) {
                 e.preventDefault();
-                if(trigger){
+                if (trigger) {
                     subTabs = true;
                 }
 
@@ -312,21 +313,21 @@ header.addEventListener('click', (e) => {
         categoryBtn = document.querySelectorAll('.category-filter__btn'),
         categoryContent = document.querySelectorAll('.category-filter__wrapper');
 
-        if(popularLink.length > 0 && popularContent.length > 0){
-            toggleContent(popularLink, popularContent, 'popular__head');
-        }
-        if(jobLink.length > 0 && jobContent.length > 0){
-            toggleContent(jobLink, jobContent, 'job-item__header');
-        }
-        if(profileTableItemLink.length > 0 && profileTableItemContent.length > 0){
-            toggleContent(profileTableItemLink, profileTableItemContent, 'js-profile-table-link');
-        }
-        if (filterLink.length > 0) {
-            toggleContent(filterLink, filterContent, 'category-filter__header');
-        }
-        if (categoryBtn.length > 0) {
-            toggleContent(categoryBtn, categoryContent, 'category-filter__btn');
-        }
+    if (popularLink.length > 0 && popularContent.length > 0) {
+        toggleContent(popularLink, popularContent, 'popular__head');
+    }
+    if (jobLink.length > 0 && jobContent.length > 0) {
+        toggleContent(jobLink, jobContent, 'job-item__header');
+    }
+    if (profileTableItemLink.length > 0 && profileTableItemContent.length > 0) {
+        toggleContent(profileTableItemLink, profileTableItemContent, 'js-profile-table-link');
+    }
+    if (filterLink.length > 0) {
+        toggleContent(filterLink, filterContent, 'category-filter__header');
+    }
+    if (categoryBtn.length > 0) {
+        toggleContent(categoryBtn, categoryContent, 'category-filter__btn');
+    }
 
 
     function toggleContent(link, content, linkClass) {
@@ -368,7 +369,7 @@ header.addEventListener('click', (e) => {
         observer: true,
         allowSlidePrev: true,
         allowSlideNext: true,
-        
+
         pagination: {
             el: '.swiper-pagination-news',
             clickable: true,
@@ -381,16 +382,16 @@ header.addEventListener('click', (e) => {
         observer: true,
         allowSlidePrev: true,
         allowSlideNext: true,
-        
-        navigation:{
+
+        navigation: {
             prevEl: '.selection-help__prev',
             nextEl: '.selection-help__next'
         },
-        breakpoints:{
-            0:{
+        breakpoints: {
+            0: {
                 slidesPerView: 1,
             },
-            575:{
+            575: {
                 slidesPerView: 2,
             }
         }
@@ -408,13 +409,13 @@ header.addEventListener('click', (e) => {
             prevEl: '.tags__prev'
         },
         breakpoints: {
-            0:{
+            0: {
                 spaceBetween: 10,
             },
-            767:{
+            767: {
                 spaceBetween: 15,
             },
-            991:{
+            991: {
                 spaceBetween: 20,
             }
         }
@@ -434,13 +435,13 @@ header.addEventListener('click', (e) => {
             prevEl: '.tags__prev-2'
         },
         breakpoints: {
-            0:{
+            0: {
                 spaceBetween: 10,
             },
-            767:{
+            767: {
                 spaceBetween: 15,
             },
-            991:{
+            991: {
                 spaceBetween: 20,
             }
         }
@@ -460,20 +461,20 @@ header.addEventListener('click', (e) => {
             prevEl: '.tags__prev-3'
         },
         breakpoints: {
-            0:{
+            0: {
                 spaceBetween: 10,
             },
-            767:{
+            767: {
                 spaceBetween: 15,
             },
-            991:{
+            991: {
                 spaceBetween: 20,
             }
         }
 
 
     });
-    
+
     let galleryThumbs = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
         autoplay: true,
@@ -502,40 +503,40 @@ header.addEventListener('click', (e) => {
         }
     });
     let cards = document.querySelectorAll('.card'),
-    oldPrice = document.querySelectorAll('.card__price'),
-    newPrice = document.querySelectorAll('.card__price-b'),
-    cardLike = document.querySelectorAll('.card__heart');
+        oldPrice = document.querySelectorAll('.card__price'),
+        newPrice = document.querySelectorAll('.card__price-b'),
+        cardLike = document.querySelectorAll('.card__heart');
     document.addEventListener('click', (e) => {
-        if(e.target && (e.target.classList.contains('card__heart') || e.target.classList.contains('js-card-heart'))){
+        if (e.target && (e.target.classList.contains('card__heart') || e.target.classList.contains('js-card-heart'))) {
             e.preventDefault();
         }
     })
-    if(cards){
+    if (cards) {
 
         toggleCardLike(cardLike);
 
-    function toggleCardLike(like) {
-        for(let i=0; i < like.length; i++) {
-            let trigger = false;
-            if(like[i]){
-            let heartColor = like[i].querySelector('.js-card-heart');
-            like[i].onclick = function(x) {
-                return function() {
-                    if(heartColor){
-                        if(trigger){
-                            heartColor.style.fill = "#fff";
-                             trigger = false;
-                         }else{
-                            heartColor.style.fill = "#467BB9";
-                             trigger = true;
-                         }
-                    }
-                    
+        function toggleCardLike(like) {
+            for (let i = 0; i < like.length; i++) {
+                let trigger = false;
+                if (like[i]) {
+                    let heartColor = like[i].querySelector('.js-card-heart');
+                    like[i].onclick = function (x) {
+                        return function () {
+                            if (heartColor) {
+                                if (trigger) {
+                                    heartColor.style.fill = "#fff";
+                                    trigger = false;
+                                } else {
+                                    heartColor.style.fill = "#467BB9";
+                                    trigger = true;
+                                }
+                            }
+
+                        }
+                    }(i)
                 }
-            }(i)
+            }
         }
-        }
-    }
 
 
     }
@@ -559,44 +560,46 @@ header.addEventListener('click', (e) => {
         oneCardImg = document.querySelector('.product__img img');
 
 
-
-if(card || oneCardParent){
-    getCardInfoToModalOneClick(card);
-}
- 
-oneCardParent.addEventListener('click', (e)=>{
-    e.preventDefault();
-    if(e.target && e.target.classList.contains('js-product-one-click')){
-        modalOneClickName.innerHTML = oneCardName.innerHTML;
-        modalInputName.value = oneCardName.innerHTML
-
-        modalOneClickPrice.innerHTML = oneCardPrice.innerHTML;
-        modalInputPrice.value = oneCardPrice.innerHTML;
-
-
-        modalOneClickImg.src = oneCardImg.src;
-        modalInputUrl.value =  window.location;
+    if (card || oneCardParent) {
+        getCardInfoToModalOneClick(card);
     }
-});
+    if (oneCardParent) {
+        oneCardParent.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (e.target && e.target.classList.contains('js-product-one-click')) {
+                modalOneClickName.innerHTML = oneCardName.innerHTML;
+                modalInputName.value = oneCardName.innerHTML
+
+                modalOneClickPrice.innerHTML = oneCardPrice.innerHTML;
+                modalInputPrice.value = oneCardPrice.innerHTML;
+
+
+                modalOneClickImg.src = oneCardImg.src;
+                modalInputUrl.value = window.location;
+            }
+        });
+    }
+
     function getCardInfoToModalOneClick(card) {
-        for(let i=0; i < card.length; i++) {
-            modalOneClickBtn[i].onclick = function(x) {
-                return function() {
-                   
-                        modalOneClickName.innerHTML = cardName[i].innerHTML;
-                        modalInputName.value = cardName[i].innerHTML
+        for (let i = 0; i < card.length; i++) {
+            modalOneClickBtn[i].onclick = function (x) {
+                return function () {
 
-                        modalOneClickPrice.innerHTML = cardPrice[i].innerHTML;
-                        modalInputPrice.value = cardPrice[i].innerHTML;
+                    modalOneClickName.innerHTML = cardName[i].innerHTML;
+                    modalInputName.value = cardName[i].innerHTML
 
-                        console.log(cardImg[i]);
-                        console.log(cardImg[i].childNodes[1]);
-                        modalOneClickImg.src = cardImg[i].src;
-                        modalInputUrl.value = cardName[i].href;
+                    modalOneClickPrice.innerHTML = cardPrice[i].innerHTML;
+                    modalInputPrice.value = cardPrice[i].innerHTML;
+
+                    console.log(cardImg[i]);
+                    console.log(cardImg[i].childNodes[1]);
+                    modalOneClickImg.src = cardImg[i].src;
+                    modalInputUrl.value = cardName[i].href;
                 }
             }(i)
         }
     }
+
     /* RATING */
     let ratingParent = document.querySelector('.js-rating'),
         ratingInput = document.querySelector('#js-rating'),
