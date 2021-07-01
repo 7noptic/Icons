@@ -1,38 +1,41 @@
 .card {
   padding-bottom: 50px;
-  &__img{
+
+  &__img {
     border-radius: 6px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    
+
   }
-  &__tag{
+
+  &__tag {
     position: absolute;
     top: 15px;
     right: 15px;
     padding: 4px 9px;
     font-weight: bold;
-font-size: 10px;
-line-height: 13px;
-border-radius: $radiusBtn;
-background-color: #fff;
-z-index: 10000;
+    font-size: 10px;
+    line-height: 13px;
+    border-radius: $radiusBtn;
+    background-color: #fff;
 
   }
-  &__heart{
-    z-index: 10000;
+
+  &__heart {
     position: absolute;
     top: 15px;
     left: 15px;
     display: block;
     transition: $transition3;
-    &:hover{
+
+    &:hover {
       transform: scale(1.2);
     }
-    &::before{
+
+    &::before {
       content: '';
       display: block;
       width: 100%;
@@ -42,26 +45,31 @@ z-index: 10000;
       left: 0;
     }
   }
-  &__feedback{
+
+  &__feedback {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 15px;
   }
-  &__info{
+
+  &__info {
     padding: 15px;
   }
-  &__reviews{
+
+  &__reviews {
     font-size: 12px;
     line-height: 15px;
   }
-  &__availability{
+
+  &__availability {
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
     color: $blue;
   }
-  &__name{
+
+  &__name {
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
@@ -78,16 +86,19 @@ z-index: 10000;
     box-orient: vertical;
     height: 50px;
   }
-  &-price{
+
+  &-price {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    &__new{
+
+    &__new {
       font-weight: 500;
       font-size: 24px;
       line-height: 20px;
     }
-    &__old{
+
+    &__old {
       font-family: Geometria;
       font-size: 18px;
       line-height: 24px;
@@ -95,99 +106,118 @@ z-index: 10000;
       margin-bottom: -2px;
       opacity: .8;
     }
-    &__discount{
+
+    &__discount {
       font-weight: 600;
       font-size: 24px;
       line-height: 20px;
       color: $blue;
     }
   }
-  &-btn{
+
+  &-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
   }
-  &__btn{
+
+  &__btn {
     width: 48%;
     padding: 11px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    &-border{
+
+    &-border {
       font-weight: 300;
       font-size: 14px;
       line-height: 20px;
     }
   }
-  
+
 }
-@media screen and(max-width:1439px){
-  .card{
+
+@media screen and(max-width: 1439px) {
+  .card {
     padding-bottom: 40px;
-    &__info{
+
+    &__info {
       padding: 15px 0;
     }
-    &__availability,&__reviews{
+
+    &__availability, &__reviews {
       font-size: 11px;
     }
-    &-price{
-     &__new{
-       font-size: 20px;
- 
-     }
-     &__old{
-       margin-bottom: -4px;
-       font-size: 16px;
-     }
-     &__discount{
-       font-size: 22px;
-     }
+
+    &-price {
+      &__new {
+        font-size: 20px;
+
+      }
+
+      &__old {
+        margin-bottom: -4px;
+        font-size: 16px;
+      }
+
+      &__discount {
+        font-size: 22px;
+      }
     }
-    &__btn{
-      &-border{
+
+    &__btn {
+      &-border {
         font-size: 12px;
       }
     }
- 
-  } 
- }
- @media screen and(max-width:1199px){
-  .card{
-    padding-bottom: 30px;
-   
- 
-  } 
- }
- @media screen and(max-width:767px){
-  .card{
-    padding-bottom: 25px;
-   &__name{
-     font-size: 11px;
-     line-height: 15px;
-     height: 44px;
-   }
-   &__feedback{
-     flex-wrap: wrap;
-ul{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 15px!important;
-}
-   }
-   &-btn{
-     flex-wrap: wrap;
-   }
-   &__btn{
-     width: 100%;
-     padding: 5px;
-     &-border{
-       margin-top: 15px;
-     }
-   }
 
- 
-  } 
- }
+  }
+}
+
+@media screen and(max-width: 1199px) {
+  .card {
+    padding-bottom: 30px;
+
+
+  }
+}
+
+@media screen and(max-width: 767px) {
+  .card {
+    padding-bottom: 25px;
+
+    &__name {
+      font-size: 11px;
+      line-height: 15px;
+      height: 44px;
+    }
+
+    &__feedback {
+      flex-wrap: wrap;
+
+      ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px !important;
+      }
+    }
+
+    &-btn {
+      flex-wrap: wrap;
+    }
+
+    &__btn {
+      width: 100%;
+      padding: 5px;
+
+      &-border {
+        margin-top: 15px;
+      }
+    }
+
+
+  }
+}

@@ -7,6 +7,103 @@ Swiper.use([Navigation, Pagination, Autoplay, Thumbs]);
 
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    function setCookie(cname, cvalue) {
+        let d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    let sortBtn = document.querySelectorAll('.category-pagecount a'),
+        sortSelect = document.querySelector('.select.wppp-select'),
+        categorySortLink = document.querySelectorAll('.category-sort__item');
+
+    if (categorySortLink) {
+        if (getCookie('woocommerce_products_sort') == 'СНАЧАЛА ДЕШЕВЫЕ') {
+            fixcategory(categorySortLink[0]);
+        } else if (getCookie('woocommerce_products_sort') == 'СНАЧАЛА ДОРОГИЕ') {
+            fixcategory(categorySortLink[1]);
+        } else if (getCookie('woocommerce_products_sort') == 'ПОПУЛЯРНОСТИ') {
+            fixcategory(categorySortLink[2]);
+        } else if (getCookie('woocommerce_products_sort') == 'НОВИНКИ') {
+            fixcategory(categorySortLink[3]);
+        }
+        if (categorySortLink[0]) {
+            categorySortLink[0].addEventListener('click', (e) => {
+                addCookiesSort('СНАЧАЛА ДЕШЕВЫЕ');
+            });
+        }
+        if (categorySortLink[1]) {
+            categorySortLink[1].addEventListener('click', (e) => {
+                addCookiesSort('СНАЧАЛА ДОРОГИЕ');
+            });
+        }
+        if (categorySortLink[2]) {
+            categorySortLink[2].addEventListener('click', (e) => {
+                addCookiesSort('ПОПУЛЯРНОСТИ');
+            });
+        }
+        if (categorySortLink[3]) {
+            categorySortLink[3].addEventListener('click', (e) => {
+                addCookiesSort('НОВИНКИ');
+            });
+        }
+
+        function addCookiesSort(value) {
+            setCookie('woocommerce_products_sort', value)
+        }
+    }
+
+    function fixcategory(item) {
+        for (let i = 0; i < categorySortLink.length; i++) {
+            categorySortLink[i].classList.remove('active');
+            if (categorySortLink[i] == item) {
+                item.classList.add('active');
+            }
+        }
+    }
+
+    if (sortBtn && sortSelect) {
+        if (getCookie('woocommerce_products_per_page') == '') {
+            setCookie('woocommerce_products_per_page', 48);
+            fixSort(sortBtn[1], 48)
+        } else if (getCookie('woocommerce_products_per_page') == 24) {
+            fixSort(sortBtn[0], 24)
+        } else if (getCookie('woocommerce_products_per_page') == 48) {
+            fixSort(sortBtn[1], 48)
+        } else {
+            fixSort(sortBtn[2], 96)
+        }
+
+        function fixSort(item, value) {
+            for (let i = 0; i <= sortBtn.length; i++) {
+                sortBtn[i].classList.remove('active');
+                if (i = sortBtn.length) {
+                    item.classList.add('active');
+                    sortSelect.value = value;
+                    break;
+                }
+            }
+        }
+    }
+
     /* HAMBURGER MENU IN HEADER*/
     let header = document.querySelector('.header'),
         main = document.querySelector('main'),
@@ -202,11 +299,21 @@ window.addEventListener('DOMContentLoaded', () => {
         profileTab = document.querySelectorAll('.js-profile-tab');
 
 
-    if (headerIconsParent && headerShelfLink.length > 0) {
-        toggleTabs(headerIconsLink, headerIconsTab, headerIconsParent, 'js-header-icon-link');
-        toggleTabs(headerShelfLink, headerShelfTab, headerIconsParent, 'js-header-shelf-link');
-        toggleTabs(headerIconStasLink, headerIconStasTab, headerIconsParent, 'js-header-iconstas-link');
-        toggleTabs(headerKiotLink, headerKiotTab, headerIconsParent, 'js-header-kiot-link');
+    if (headerIconsParent) {
+        if(headerIconsLink.length > 0){
+            toggleTabs(headerIconsLink, headerIconsTab, headerIconsParent, 'js-header-icon-link');
+
+        }
+        if(headerShelfLink.length > 0){
+            toggleTabs(headerShelfLink, headerShelfTab, headerIconsParent, 'js-header-shelf-link');
+
+        }
+        if(headerIconStasLink.length > 0){
+            toggleTabs(headerIconStasLink, headerIconStasTab, headerIconsParent, 'js-header-iconstas-link');
+        }
+        if(headerKiotLink.length > 0){
+            toggleTabs(headerKiotLink, headerKiotTab, headerIconsParent, 'js-header-kiot-link');
+        }
     }
     if (storeParent && storeLink.length > 0) {
         toggleTabs(storeLink, storeTab, storeParent, 'js-store-link', true, '.js-store-sublink', '.js-store-subtab');
@@ -308,8 +415,8 @@ window.addEventListener('DOMContentLoaded', () => {
         profileTableItemParent = document.querySelector('.profile'),
         profileTableItemLink = document.querySelectorAll('.js-profile-table-link'),
         profileTableItemContent = document.querySelectorAll('.js-profile-table-content'),
-        filterLink = document.querySelectorAll('.category-filter__header'),
-        filterContent = document.querySelectorAll('.category-filter__content'),
+        filterLink = document.querySelectorAll('.widget-title'),
+        filterContent = document.querySelectorAll('.woocommerce-widget-layered-nav-list'),
         categoryBtn = document.querySelectorAll('.category-filter__btn'),
         categoryContent = document.querySelectorAll('.category-filter__wrapper');
 
@@ -323,7 +430,7 @@ window.addEventListener('DOMContentLoaded', () => {
         toggleContent(profileTableItemLink, profileTableItemContent, 'js-profile-table-link');
     }
     if (filterLink.length > 0) {
-        toggleContent(filterLink, filterContent, 'category-filter__header');
+        toggleContent(filterLink, filterContent, 'widget-title');
     }
     if (categoryBtn.length > 0) {
         toggleContent(categoryBtn, categoryContent, 'category-filter__btn');
