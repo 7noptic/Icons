@@ -11,9 +11,13 @@
 
   }
 
-  &__tag {
+  &__tag, &__heart {
     position: absolute;
     top: 15px;
+    z-index: 10;
+  }
+
+  &__tag {
     right: 15px;
     padding: 4px 9px;
     font-weight: bold;
@@ -25,10 +29,8 @@
   }
 
   &__heart {
-    position: absolute;
-    top: 15px;
+    display: none;
     left: 15px;
-    display: block;
     transition: $transition3;
 
     &:hover {

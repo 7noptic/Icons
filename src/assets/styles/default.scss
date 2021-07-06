@@ -115,21 +115,19 @@ input:focus,
 textarea,
 textarea:active,
 textarea:hover,
-textarea:focus {
+textarea:focus,
+select,
+select:active,
+select:hover,
+select:focus{
   cursor: pointer;
   border: none;
   outline: none;
-  
-}
-
-button,
-button:active,
-button:hover,
-button:focus{
   -webkit-appearance: none;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
 }
+
 
 textarea {
   resize: none;
