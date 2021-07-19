@@ -1,21 +1,28 @@
-.modal-one-click{
-    &__item{
-        margin-bottom: 40px;
-    }
-    &__name{
-        margin-bottom: 20px;
-        font-size: 13px;
-line-height: 17px;
-font-weight: 700;
-display: block;
-    }
-    &__img{
-        img{
-            border-radius: 18px;
+.modal-one-click {
+  &__item {
+    margin-bottom: 40px;
+  }
 
-        }
+  &__name {
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 15px;
+    display: block;
+  }
+
+  &__img {
+    img {
+      border-radius: 18px;
+
     }
-    &__text{
-        font-size: 12px;
-    }
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+  &__price{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }

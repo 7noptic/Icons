@@ -1,4 +1,4 @@
-.widget-title{
+.widget-title {
   font-weight: normal;
   font-size: 24px;
   line-height: 30px;
@@ -29,6 +29,7 @@
     }
   }
 }
+
 .woocommerce-widget-layered-nav-list {
   display: none;
   transform: scale(0);
@@ -46,11 +47,13 @@
     animation-duration: .3s;
   }
 }
-.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term{
-  span{
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term {
+  span {
     display: none;
   }
-  a{
+
+  a {
     display: block;
     width: 100%;
     padding-left: 30px;
@@ -93,26 +96,96 @@
 
 
 }
-.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.chosen{
-  a{
-      &:before {
-        border: 1px solid rgba(#000, .7);
-      }
 
-      &:after {
-        content: url("../img/ok.svg");
-        position: absolute;
-        top: 0;
-        left: 5px;
-      }
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.chosen {
+  a {
+    &:before {
+      border: 1px solid rgba(#000, .7);
     }
+
+    &:after {
+      content: url("../img/ok.svg");
+      position: absolute;
+      top: 0;
+      left: 5px;
+    }
+  }
 }
-.woocommerce-info,.return-to-shop {
+
+.woocommerce-info, .return-to-shop {
   display: block;
   text-align: center;
   width: 100%;
 }
-.woocommerce-info,.return-to-shop, .woocommerce-noreviews, p.no-comments {
+
+.woocommerce-info, .return-to-shop, .woocommerce-noreviews, p.no-comments {
   background-color: transparent !important;
   margin-bottom: 20px;
+}
+
+.woocommerce-error {
+  box-shadow: 5px 5px 20px 5px #afabce;
+  border-radius: 18px;
+  margin-bottom: 60px !important;
+  padding: 20px 15px !important;
+  background-color: $blue !important;
+  width: 100%;
+
+  & li {
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 5px;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.woocommerce-error {
+  li {
+    a {
+      display: none;
+    }
+  }
+}
+
+.lwptoc_item {
+  a {
+    span {
+      color: #473512;
+      padding: 20px 0;
+      font-size: 16px;
+      line-height: 24px;
+      display: block;
+    }
+  }
+}
+
+.lwptoc-light .lwptoc_i {
+  background: #fff !important;
+}
+
+@media (max-width: 991px) {
+  .lwptoc-autoWidth .lwptoc_i {
+    display: block !important;
+  }
+  .lwptoc_item {
+    a {
+      span {
+        color: #473512;
+        padding: 15px 0;
+        font-size: 14px;
+        line-height: 18px;
+        display: block;
+      }
+    }
+  }
+}
+.toggle__rev__form__title{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 25px;
+  text-align: center;
 }

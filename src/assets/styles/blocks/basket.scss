@@ -1,6 +1,8 @@
 .basket{
   padding-bottom: 100px;
   &-item{
+    width: 100%;
+    justify-content: space-between;
     display: flex;
     align-items: center;
     padding: 15px 0;
@@ -8,13 +10,17 @@
     &:last-child,&:last-of-type{
       border-bottom: 1px solid rgba(#000, .15);
     }
+    &__img{
+      width: 150px;
+      padding-right: 30px;
+    }
     &__name{
       font-weight: 300;
       font-size: 14px;
       line-height: 20px;
       display: flex;
       align-items: center;
-      width: 45%;
+      width: calc(60% - 200px);
       padding-right: 5%;
     }
     &__img{
@@ -23,20 +29,21 @@
         border-radius: 6px;
     }
     &__count{
-      width: 25%;
+      width: 20%;
       display: flex;
       justify-content: center;
       align-items: center;
 
     }
     &__price{
-      width: 25%;
+      width: 20%;
       display: flex;
       justify-content: center;
       align-items: center;
       font-weight: 600;
       font-size: 18px;
       line-height: 22px;
+      margin-bottom: 0!important;
     }
   }
   &-promo{

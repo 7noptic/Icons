@@ -6,6 +6,10 @@
   transition: $transition3;
   width: 100%;
 
+  & > row {
+    width: 100%;
+  }
+
   &.active {
     animation: showTabs .5s;
     display: flex;
@@ -170,12 +174,14 @@
       flex-wrap: wrap;
       display: flex;
       padding-bottom: 0;
+
       &__link {
         font-size: 9px;
         line-height: 15px;
         padding: 3px 5px;
         margin-right: 10px;
         margin-bottom: 20px;
+
         &:last-of-type, &:last-child {
           margin-right: 0;
         }

@@ -240,7 +240,7 @@
               left: 647px;
               z-index: -1;
               opacity: 0;
-              object-fit: contain;
+              object-fit: cover;
               max-width: 350px;
 
             }
@@ -252,6 +252,7 @@
         & > li {
           & > a {
             color: $blue;
+            font-weight: bold;
           }
 
           &:last-child, &:last-of-type {

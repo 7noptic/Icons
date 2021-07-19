@@ -1,161 +1,201 @@
-.article{
+.article {
+  padding-bottom: 80px;
+
+  &s {
     padding-bottom: 80px;
-    &s{
-        padding-bottom: 80px;
-    }
-    &__title{
-        font-weight: bold;
-font-size: 24px;
-line-height: 30px;
-padding-bottom: 20px;
-    }
-    &-item{
-        padding: 25px 0;
-    }
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: normal;
-font-size: 14px;
-line-height: 24px;
-padding-bottom: 15px;
-    }
-    &__author{
-        display: flex;
-        align-items: center;
-    }
-    &__views{
-        display: flex;
-        align-items: center;
-        position: relative;
-        &::before{
-            content: url('../img/view.svg');
-            position: absolute;
-            top: 0;
-            left: -30px;
-            display: block;
+  }
 
-        }
-    }
-    &__rating{
-        display: flex;
-        align-items: center;
-        span{
-            margin-right: 20px;
-        }
-    }
-    &__img{
-        border-radius: 6px;
-        margin-bottom: 20px;
-    }
-    &__preview{
-        display: block;
-        margin-bottom: 15px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -moz-box;
-        -moz-box-orient: vertical;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-clamp: 3;
-        box-orient: vertical;
-        height: 60px;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 20px;
-    }
-    &__text{
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 20px;
-        p,div,ul{
-            padding-bottom: 15px!important;
-        }
-        ul>li{
-            padding-bottom: 10px!important;
-        }
-        h2,h3,h4,h5,h6{
-            padding-bottom: 20px!important;
-        }
+  &__title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    padding-bottom: 20px;
+    display: block;
+  }
+
+  &-item {
+    padding: 25px 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding-bottom: 15px;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+  }
+
+  &__views {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: url('../img/view.svg');
+      position: absolute;
+      top: 0;
+      left: -30px;
+      display: block;
 
     }
-    &__link{
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 24px;
-        position: relative;
-        &::after{
-            content: url('../img/arb.svg');
-            position: absolute;
-            top: -5px;
-            right: -30px;
-            transform: rotate(-90deg);
-        }
-        &-back{
-            position: relative;
-            padding-left: 30px;
-            &::after{
-                right: auto;
-                top: -5px;
-                left: 0;
-                transform: rotate(90deg);
-            }
-        }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 20px;
     }
-}
-@media screen and(max-width:1199px) {
-    .article{
-        padding-bottom: 60px;
-        &__title{
-            font-size: 18px;
-            line-height: 28px;
-        }
-        &__header{
-    font-size: 12px;
+  }
+
+  &__img {
+    border-radius: 6px;
+    margin-bottom: 20px;
+    min-height: 360px;
+  }
+
+  &__preview {
+    display: block;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+    height: 60px;
+    font-weight: 300;
+    font-size: 14px;
     line-height: 20px;
-        }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+
+    p, div, ul {
+      padding-bottom: 15px !important;
     }
+
+    ul > li {
+      padding-bottom: 10px !important;
+    }
+
+    h2, h3, h4, h5, h6 {
+      padding-bottom: 20px !important;
+    }
+
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+
+    &::after {
+      content: url('../img/arb.svg');
+      position: absolute;
+      top: -5px;
+      right: -30px;
+      transform: rotate(-90deg);
+    }
+
+    &-back {
+      position: relative;
+      padding-left: 30px;
+
+      &::after {
+        right: auto;
+        top: -5px;
+        left: 0;
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
-@media screen and (max-width: 575px){
-.article{
+@media screen and(max-width: 1199px) {
+  .article {
+    padding-bottom: 60px;
+
+    &__title {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    &__header {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .article {
     padding-bottom: 40px;
-    &__views{
+    &__img{
+      min-height: auto;
+      img{
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    &__views {
+      display: none;
+    }
+
+    &__rating {
+      span {
         display: none;
+      }
     }
-    &__rating{
-        span{
-            display: none;
-        }
+
+    &__title {
+      font-size: 14px;
+      line-height: 22px;
     }
-    &__title{
-        font-size: 14px;
-        line-height: 22px;
+
+    &__preview {
+      height: 57px;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 18px;
     }
-    &__preview{
-        height: 57px;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 18px;
+
+    &__link {
+      font-size: 12px;
+      line-height: 15px;
     }
-    &__link{
-        font-size: 12px;
-        line-height: 15px;
-    }
-    &__text{
-        font-size: 12px;
-        line-height: 17px;
-        p,div,ul{
-            padding-bottom: 10px!important;
-        }
-        ul>li{
-            padding-bottom: 5px!important;
-        }
-        h2,h3,h4,h5,h6{
-            padding-bottom: 15px!important;
-        }
+
+    &__text {
+      font-size: 12px;
+      line-height: 17px;
+
+      p, div, ul {
+        padding-bottom: 10px !important;
+      }
+
+      ul > li {
+        padding-bottom: 5px !important;
+      }
+
+      h2, h3, h4, h5, h6 {
+        padding-bottom: 15px !important;
+      }
 
     }
-}
+  }
 }
